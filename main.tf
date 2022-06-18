@@ -112,8 +112,8 @@ module "eks_blueprints_kubernetes_addons" {
   atlantis_helm_config = {
     values = [templatefile("${path.module}/helm_values/atlantis.yml", {
       github_user         = var.atlantis_github_user
-      github_token        = var.atlantis_github_token
-      github_secret       = var.atlantis_github_secret
+      github_token        = data.aws_secretsmanager_secret_version.secret_atlantis_github_token.secret_string
+      github_secret       = data.aws_secretsmanager_secret_version.secret_atlantis_github_secret.secret_string
       github_orgAllowlist = var.atlantis_github_orgAllowlist
       hostname            = var.atlantis_hostname
     })]
@@ -172,3 +172,13 @@ module "vpc" {
 
   tags = local.tags
 }
+
+
+data "aws_secretsmanager_secret_version" "secret_atlantis_github_token" {
+  secret_id = "/${var.env}/atlantis/github_token" 
+}
+
+data "aws_secretsmanager_secret_version" "secret_atlantis_github_secret" {
+  secret_id = "/${var.env}/atlantis/github_secret"
+}
+

@@ -1,0 +1,14 @@
+version: 3
+projects:
+# If two or more projects have the same dir and workspace, they must also have
+# a 'name' key to differentiate them.
+- name: project1-staging
+  workflow: staging
+
+workflows:
+  staging:
+    plan:
+      steps:
+      - init
+      - plan:
+          extra_args: ["-var-file", "dev.tfvars"]
