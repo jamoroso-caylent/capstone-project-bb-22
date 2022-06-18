@@ -1,0 +1,214 @@
+[0m[1mmodule.eks_blueprints.data.aws_region.current: Reading...[0m[0m
+[0m[1mdata.aws_secretsmanager_secret_version.secret_atlantis_github_secret: Reading...[0m[0m
+[0m[1mdata.aws_region.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_secretsmanager_secret_version.secret_atlantis_github_token: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.aws_partition.current: Reading...[0m[0m
+[0m[1mdata.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mmodule.eks_blueprints.data.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks_blueprints.data.aws_partition.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mdata.aws_availability_zones.available: Reading...[0m[0m
+[0m[1mmodule.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-019c589bde807070b][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.aws_iam_policy_document.assume_role_policy[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2764486067][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role.this[0]: Refreshing state... [id=capstone-project-cluster-role][0m
+[0m[1mdata.aws_availability_zones.available: Read complete after 0s [id=us-east-1][0m
+[0m[1mmodule.vpc.aws_eip.nat[0]: Refreshing state... [id=eipalloc-02d0eadd73bfb0d31][0m
+[0m[1mmodule.eks_blueprints.data.aws_caller_identity.current: Read complete after 0s [id=321852949023][0m
+[0m[1mmodule.eks_blueprints.data.aws_iam_session_context.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_iam_session_context.current: Read complete after 0s [id=arn:aws:iam::321852949023:user/capstone-project][0m
+[0m[1mmodule.eks_blueprints.data.aws_iam_policy_document.eks_key: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_iam_policy_document.eks_key: Read complete after 0s [id=3905327603][0m
+[0m[1mmodule.eks_blueprints.module.kms[0].aws_kms_key.this: Refreshing state... [id=e0908472-7982-4dbd-bcf1-0a0fb85c3cfe][0m
+[0m[1mdata.aws_secretsmanager_secret_version.secret_atlantis_github_secret: Read complete after 0s [id=/dev/atlantis/github_secret|AWSCURRENT][0m
+[0m[1mdata.aws_secretsmanager_secret_version.secret_atlantis_github_token: Read complete after 0s [id=/dev/atlantis/github_token|AWSCURRENT][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"]: Refreshing state... [id=capstone-project-cluster-role-20220618041653308200000001][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"]: Refreshing state... [id=capstone-project-cluster-role-20220618041653433300000002][0m
+[0m[1mmodule.eks_blueprints.module.kms[0].aws_kms_alias.this: Refreshing state... [id=alias/capstone-project][0m
+[0m[1mmodule.vpc.aws_default_route_table.default[0]: Refreshing state... [id=rtb-0f928b86f7263f49e][0m
+[0m[1mmodule.vpc.aws_default_security_group.this[0]: Refreshing state... [id=sg-064b3514c7f196963][0m
+[0m[1mmodule.vpc.aws_default_network_acl.this[0]: Refreshing state... [id=acl-013fb09c9247c8d47][0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Refreshing state... [id=rtb-0eb9eec33b1891ac5][0m
+[0m[1mmodule.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-0999245057af7555a][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-05117b8870cb4fbf2][0m
+[0m[1mmodule.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-06ee5395deb0740bc][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group.cluster[0]: Refreshing state... [id=sg-028a4bf3ac88edce3][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group.node[0]: Refreshing state... [id=sg-0ca64e6bb85635eec][0m
+[0m[1mmodule.vpc.aws_subnet.public[2]: Refreshing state... [id=subnet-0cb91d2cecd292004][0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-0aa5d3aa94b303fbb][0m
+[0m[1mmodule.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-00bea57559b6c21b3][0m
+[0m[1mmodule.vpc.aws_subnet.private[2]: Refreshing state... [id=subnet-0833c1747130165c8][0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-06cf8bf4ccd0863dd][0m
+[0m[1mmodule.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-06ee5395deb0740bc1080289494][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_ntp_tcp"]: Refreshing state... [id=sgrule-3936832461][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_ntp_udp"]: Refreshing state... [id=sgrule-2486791872][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_self_coredns_udp"]: Refreshing state... [id=sgrule-1608325325][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_self_coredns_tcp"]: Refreshing state... [id=sgrule-3824167038][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_cluster_443"]: Refreshing state... [id=sgrule-2863482116][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_self_coredns_udp"]: Refreshing state... [id=sgrule-1838656024][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_cluster_443"]: Refreshing state... [id=sgrule-1096752768][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_cluster_kubelet"]: Refreshing state... [id=sgrule-3257531115][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_https"]: Refreshing state... [id=sgrule-897152723][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_self_coredns_tcp"]: Refreshing state... [id=sgrule-4219648802][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["egress_nodes_443"]: Refreshing state... [id=sgrule-1623035448][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["egress_nodes_kubelet"]: Refreshing state... [id=sgrule-573875379][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["ingress_nodes_443"]: Refreshing state... [id=sgrule-1690178081][0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Refreshing state... [id=nat-072b7081afb097203][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-054041f883f176f02][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-06f742379b36a9977][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Refreshing state... [id=rtbassoc-0b138490fd153b63f][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[2]: Refreshing state... [id=rtbassoc-00d4ba8350f8240a1][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0ff385d9255ee22cd][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0c7167002d75bb912][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Refreshing state... [id=capstone-project][0m
+[0m[1mmodule.vpc.aws_route.private_nat_gateway[0]: Refreshing state... [id=r-rtb-0eb9eec33b1891ac51080289494][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.tls_certificate.this[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_ec2_tag.cluster_primary_security_group["created-on"]: Refreshing state... [id=sg-07e507ff019fc9c13,created-on][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_ec2_tag.cluster_primary_security_group["capstone-project"]: Refreshing state... [id=sg-07e507ff019fc9c13,capstone-project][0m
+[0m[1mmodule.eks_blueprints.data.aws_eks_cluster.cluster[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_eks_cluster.cluster[0]: Read complete after 0s [id=capstone-project][0m
+[0m[1mmodule.eks_blueprints.data.http.eks_cluster_readiness[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.tls_certificate.this[0]: Read complete after 0s [id=afff7c9d2e2999b38d9db7af1323317c0857363c][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_openid_connect_provider.oidc_provider[0]: Refreshing state... [id=arn:aws:iam::321852949023:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/DBFD2CFBA9AEFE9ABD45345CBD70406F][0m
+[0m[1mmodule.eks_blueprints.data.http.eks_cluster_readiness[0]: Read complete after 1s [id=https://DBFD2CFBA9AEFE9ABD45345CBD70406F.gr7.us-east-1.eks.amazonaws.com/healthz][0m
+[0m[1mmodule.eks_blueprints.kubernetes_config_map.aws_auth[0]: Refreshing state... [id=kube-system/aws-auth][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].data.aws_iam_policy_document.managed_ng_assume_role_policy: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].data.aws_iam_policy_document.managed_ng_assume_role_policy: Read complete after 0s [id=3778018924][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role.managed_ng[0]: Refreshing state... [id=capstone-project-capstone-project-managed-ondemand][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=capstone-project-capstone-project-managed-ondemand-20220618042727357700000006][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"]: Refreshing state... [id=capstone-project-capstone-project-managed-ondemand-20220618042727151200000005][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=capstone-project-capstone-project-managed-ondemand-20220618042727460000000008][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"]: Refreshing state... [id=capstone-project-capstone-project-managed-ondemand-20220618042727442600000007][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_instance_profile.managed_ng[0]: Refreshing state... [id=capstone-project-capstone-project-managed-ondemand][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Refreshing state... [id=capstone-project:capstone-project-managed-ondemand-20220618042727933700000009][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_partition.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_region.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_eks_cluster.eks_cluster: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_route53_zone.selected: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].data.aws_iam_policy_document.karpenter: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].kubernetes_namespace_v1.this: Refreshing state... [id=argocd][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].data.aws_iam_policy_document.karpenter: Read complete after 0s [id=2833454573][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_caller_identity.current: Read complete after 0s [id=321852949023][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_eks_cluster.eks_cluster: Read complete after 0s [id=capstone-project][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].aws_iam_policy.karpenter: Refreshing state... [id=arn:aws:iam::321852949023:policy/capstone-project-karpenter][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].data.aws_iam_policy_document.aws_ebs_csi_driver[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.helm_release.addon[0]: Refreshing state... [id=atlantis][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].data.aws_iam_policy_document.aws_ebs_csi_driver[0]: Read complete after 0s [id=1888929143][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].data.aws_iam_policy_document.aws_lb: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_iam_policy.aws_ebs_csi_driver[0]: Refreshing state... [id=arn:aws:iam::321852949023:policy/capstone-project-aws-ebs-csi-driver-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].data.aws_iam_policy_document.aws_lb: Read complete after 0s [id=304567098][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].aws_iam_policy.aws_load_balancer_controller: Refreshing state... [id=arn:aws:iam::321852949023:policy/capstone-project-lb-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0]: Refreshing state... [id=karpenter][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Refreshing state... [id=capstone-project-karpenter-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].module.irsa_addon[0].aws_iam_role.irsa[0]: Refreshing state... [id=capstone-project-ebs-csi-controller-sa-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Refreshing state... [id=capstone-project-aws-load-balancer-controller-sa-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Refreshing state... [id=argo-cd][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_route53_zone.selected: Read complete after 1s [id=Z08753113IBKZ7SGL2Q7Q][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_iam_policy_document.external_dns_iam_policy_document: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_iam_policy_document.external_dns_iam_policy_document: Read complete after 0s [id=2583156838][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].aws_iam_policy.external_dns: Refreshing state... [id=arn:aws:iam::321852949023:policy/capstone-project-external-dns-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0]: Refreshing state... [id=external-dns][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Refreshing state... [id=capstone-project-external-dns-sa-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Refreshing state... [id=capstone-project-karpenter-irsa-2022061804313194870000000c][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Refreshing state... [id=karpenter/karpenter][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].module.irsa_addon[0].aws_iam_role_policy_attachment.irsa[0]: Refreshing state... [id=capstone-project-ebs-csi-controller-sa-irsa-2022061804313199590000000d][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Refreshing state... [id=capstone-project:aws-ebs-csi-driver][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Refreshing state... [id=capstone-project-aws-load-balancer-controller-sa-irsa-2022061804313215900000000e][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Refreshing state... [id=kube-system/aws-load-balancer-controller-sa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Refreshing state... [id=capstone-project-external-dns-sa-irsa-2022061804313250530000000f][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Refreshing state... [id=external-dns/external-dns-sa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["workloads"]: Refreshing state... [id=workloads][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["addons"]: Refreshing state... [id=addons][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [33m~[0m update in-place
+[0m
+Terraform will perform the following actions:
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.helm_release.addon[0][0m will be updated in-place[0m[0m
+[0m  [33m~[0m[0m resource "helm_release" "addon" {
+        [1m[0mid[0m[0m                         = "atlantis"
+      [32m+[0m [0m[1m[0mkeyring[0m[0m                    = ""
+        [1m[0mname[0m[0m                       = "atlantis"
+      [32m+[0m [0m[1m[0mrepository_cert_file[0m[0m       = ""
+      [32m+[0m [0m[1m[0mrepository_key_file[0m[0m        = ""
+      [32m+[0m [0m[1m[0mrepository_password[0m[0m        = (sensitive value)
+      [32m+[0m [0m[1m[0mrepository_username[0m[0m        = ""
+      [33m~[0m [0m[1m[0mvalues[0m[0m                     = [
+          [31m-[0m [0m<<-EOT
+                github:
+                  user: jamoroso-caylent
+                  token: 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
+                  secret: ewfh8weahf8qrfh7ewh7fib8d
+                orgAllowlist: github.com/jamoroso-caylent/*
+                storageClassName: gp2
+                ingress:
+                  annotations: {
+                    alb.ingress.kubernetes.io/scheme: internet-facing,
+                    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443},{"HTTP":80}]',
+                    alb.ingress.kubernetes.io/ssl-redirect: '443',
+                    external-dns.alpha.kubernetes.io/hostname: atlantis.jamoroso.com,
+                    alb.ingress.kubernetes.io/group.name: ci-cd-ingress,
+                    kubernetes.io/ingress.class: alb
+                  }
+                  host: atlantis.jamoroso.com
+                  tls:
+                    - hosts:
+                      - atlantis.jamoroso.com
+            EOT,
+          [32m+[0m [0m(sensitive),
+        ]
+        [90m# (27 unchanged attributes hidden)[0m[0m
+
+        [90m# (1 unchanged block hidden)[0m[0m
+    }
+
+[0m[1mPlan:[0m 0 to add, 1 to change, 0 to destroy.
+[0m[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.helm_release.addon[0]: Modifying... [id=atlantis][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.helm_release.addon[0]: Modifications complete after 0s [id=atlantis][0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mArgument is deprecated[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  with provider["registry.terraform.io/hashicorp/aws"],
+[33m│[0m [0m  on main.tf line 4, in provider "aws":
+[33m│[0m [0m   4:   shared_credentials_file = [4m"./.credentials"[0m[0m
+[33m│[0m [0m
+[33m│[0m [0mUse shared_credentials_files instead.
+[33m│[0m [0m
+[33m│[0m [0m(and 2 more similar warnings elsewhere)
+[33m╵[0m[0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mRedundant ignore_changes element[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  on .terraform/modules/eks_blueprints.aws_eks/main.tf line 298, in resource "aws_eks_addon" "this":
+[33m│[0m [0m 298: resource [4m"aws_eks_addon"[0m "this" {[0m
+[33m│[0m [0m
+[33m│[0m [0mAdding an attribute name to ignore_changes tells Terraform to ignore future changes to the argument in configuration after the object has been created, retaining the value originally configured.
+[33m│[0m [0m
+[33m│[0m [0mThe attribute modified_at is decided by the provider alone and therefore there can be no configured value to compare with. Including this attribute in ignore_changes has no effect. Remove the attribute from
+[33m│[0m [0mignore_changes to quiet this warning.
+[33m╵[0m[0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mExperimental feature "module_variable_optional_attrs" is active[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  on .terraform/modules/eks_blueprints_kubernetes_addons.ondat/locals.tf line 2, in terraform:
+[33m│[0m [0m   2:   experiments = [[4mmodule_variable_optional_attrs[0m][0m
+[33m│[0m [0m
+[33m│[0m [0mExperimental features are subject to breaking changes in future minor or patch releases, based on feedback.
+[33m│[0m [0m
+[33m│[0m [0mIf you have feedback on the design of this feature, please open a GitHub issue to discuss it.
+[33m│[0m [0m
+[33m│[0m [0m(and 74 more similar warnings elsewhere)
+[33m╵[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mconfigure_kubectl = "aws eks --region us-east-1 update-kubeconfig --name capstone-project"

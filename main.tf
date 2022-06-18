@@ -116,6 +116,7 @@ module "eks_blueprints_kubernetes_addons" {
       github_secret       = data.aws_secretsmanager_secret_version.secret_atlantis_github_secret.secret_string
       github_orgAllowlist = var.atlantis_github_orgAllowlist
       hostname            = var.atlantis_hostname
+      repoConfig          = file("${path.module}/helm_values/atlantis-server-config.yaml")
     })]
   }
 
