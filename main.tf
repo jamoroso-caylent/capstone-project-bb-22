@@ -106,8 +106,18 @@ module "eks_blueprints_kubernetes_addons" {
   }
   argocd_helm_config = {
     values = [templatefile("${path.module}/helm_values/argocd.yml", {
-      hostname         = var.argocd_hostname
-    })]  }
+      hostname = var.argocd_hostname
+  })] }
+
+  atlantis_helm_config = {
+    values = [templatefile("${path.module}/helm_values/atlantis.yml", {
+      github_user         = var.atlantis_github_user
+      github_token        = var.atlantis_github_token
+      github_secret       = var.atlantis_github_secret
+      github_orgAllowlist = var.atlantis_github_orgAllowlist
+      hostname            = var.atlantis_hostname
+    })]
+  }
 
   # Add-ons
   enable_external_dns                  = true
@@ -117,14 +127,6 @@ module "eks_blueprints_kubernetes_addons" {
   enable_aws_load_balancer_controller  = true
   enable_amazon_eks_aws_ebs_csi_driver = true
   enable_atlantis                      = true
-  atlantis_helm_config = {
-    values = [templatefile("${path.module}/helm_values/atlantis.yml", {
-      github_user         = var.atlantis_github_user
-      github_token        = var.atlantis_github_token
-      github_orgAllowlist = var.atlantis_github_orgAllowlist
-      hostname            = var.atlantis_hostname
-    })]
-  }
 
   tags = local.tags
   depends_on = [
