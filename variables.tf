@@ -72,3 +72,9 @@ variable "argocd_hostname" {
   description = "Argocd hostname to be used if the atlantis plugin is enabled"
   default     = "" 
 }
+
+variable "cluster_hostname" {
+  type        = string
+  description = "Domain name used on external dns plugin if enabled"
+  default     = ""  
+}

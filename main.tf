@@ -121,7 +121,7 @@ module "eks_blueprints_kubernetes_addons" {
 
   # Add-ons
   enable_external_dns                  = true
-  eks_cluster_domain                   = "jamoroso.com" #Used by external dns
+  eks_cluster_domain                   = var.cluster_hostname #Used by external dns
   enable_karpenter                     = true
   enable_metrics_server                = true
   enable_aws_load_balancer_controller  = true
