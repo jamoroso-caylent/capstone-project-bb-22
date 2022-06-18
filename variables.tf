@@ -37,3 +37,38 @@ variable "min_size" {
   default     = 3
 }
 
+variable "atlantis_github_user" {
+  type        = string
+  description = "Github user to be used if the atlantis plugin is enabled"
+  default     = "" 
+}
+
+variable "atlantis_github_token" {
+  type        = string
+  description = "Github token to be used if the atlantis plugin is enabled"
+  default     = "" 
+}
+
+variable "atlantis_github_secret" {
+  type        = string
+  description = "Github secret to be used if the atlantis plugin is enabled"
+  default     = "" 
+}
+
+variable "atlantis_github_orgAllowlist" {
+  type        = string
+  description = "Github organization allow list to be used if the atlantis plugin is enabled"
+  default     = "" 
+}
+
+variable "atlantis_hostname" {
+  type        = string
+  description = "Atlantis hostname to be used if the atlantis plugin is enabled"
+  default     = "" 
+}
+
+variable "argocd_hostname" {
+  type        = string
+  description = "Argocd hostname to be used if the atlantis plugin is enabled"
+  default     = "" 
+}
