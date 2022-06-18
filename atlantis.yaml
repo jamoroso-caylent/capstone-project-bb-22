@@ -4,6 +4,7 @@ projects:
 # a 'name' key to differentiate them.
 - name: project1-staging
   workflow: staging
+  dir: .
 
 workflows:
   staging:
