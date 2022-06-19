@@ -83,6 +83,7 @@ module "eks_blueprints_kubernetes_addons" {
   eks_cluster_endpoint = module.eks_blueprints.eks_cluster_endpoint
   eks_oidc_provider    = module.eks_blueprints.oidc_provider
   eks_cluster_version  = module.eks_blueprints.eks_cluster_version
+  eks_cluster_domain   = var.cluster_hostname #Used by external dns
 
   enable_argocd         = true
   argocd_manage_add_ons = true # Indicates that ArgoCD is responsible for managing/deploying add-ons
@@ -122,14 +123,13 @@ module "eks_blueprints_kubernetes_addons" {
 
   # Add-ons
   enable_external_dns                  = true
-  eks_cluster_domain                   = var.cluster_hostname #Used by external dns
   enable_karpenter                     = true
   enable_metrics_server                = true
   enable_aws_load_balancer_controller  = true
   enable_amazon_eks_aws_ebs_csi_driver = true
   enable_atlantis                      = true
-
-  tags = local.tags
+  enable_csi_secrets_store_provider    = true
+  tags                                 = local.tags
   depends_on = [
     module.eks_blueprints
   ]
@@ -176,7 +176,7 @@ module "vpc" {
 
 
 data "aws_secretsmanager_secret_version" "secret_atlantis_github_token" {
-  secret_id = "/${var.env}/atlantis/github_token" 
+  secret_id = "/${var.env}/atlantis/github_token"
 }
 
 data "aws_secretsmanager_secret_version" "secret_atlantis_github_secret" {
