@@ -1,7 +1,7 @@
 name     = "capstone-project"
 vpc_cidr = "172.16.0.0/16"
 tags = {
-  "created-on" = "1806-01AM"
+  "created-on" = "2006-12PM"
   "capstone-project" = "true"
 }
 env = "dev"
