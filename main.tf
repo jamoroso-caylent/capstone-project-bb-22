@@ -1,8 +1,8 @@
 provider "aws" {
   #   region = "data.aws_region.current"
   region                  = "us-east-1"
-  shared_credentials_file = "./.credentials"
-  profile                 = "local"
+  # shared_credentials_file = "./.credentials"
+  # profile                 = "local"
 }
 
 provider "kubernetes" {
