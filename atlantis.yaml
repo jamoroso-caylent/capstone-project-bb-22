@@ -14,7 +14,7 @@ workflows:
   build:
     plan:
       steps:
-      - init
+      - init:
           extra_args: ["-backend-config", "backend.tfvars"]
       - plan:
           extra_args: ["-var-file", "build.tfvars"]
