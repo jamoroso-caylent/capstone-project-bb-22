@@ -47,7 +47,7 @@ locals {
 # EKS Blueprints
 #---------------------------------------------------------------
 module "eks_blueprints" {
-  source = "../.."
+  source = "git::https://github.com/jamoroso-caylent/terraform-aws-eks-blueprints.git"
 
   #                 var.cluster_name is for Terratest
   cluster_name    = coalesce(var.cluster_name, local.name)
@@ -69,7 +69,7 @@ module "eks_blueprints" {
 }
 
 module "eks_blueprints_kubernetes_addons" {
-  source = "../../modules/kubernetes-addons"
+  source = "git::https://github.com/jamoroso-caylent/terraform-aws-eks-blueprints.git//modules/kubernetes-addons"
 
   eks_cluster_id       = module.eks_blueprints.eks_cluster_id
   eks_cluster_endpoint = module.eks_blueprints.eks_cluster_endpoint
