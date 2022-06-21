@@ -1,0 +1,2804 @@
+[0m[1mmodule.eks_blueprints.data.aws_region.current: Reading...[0m[0m
+[0m[1mdata.aws_secretsmanager_secret_version.secret_atlantis_github_token: Reading...[0m[0m
+[0m[1mdata.aws_region.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_partition.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.aws_partition.current: Reading...[0m[0m
+[0m[1mdata.aws_availability_zones.available: Reading...[0m[0m
+[0m[1mdata.aws_secretsmanager_secret_version.secret_atlantis_github_secret: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mmodule.eks_blueprints.data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mdata.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.aws_iam_policy_document.assume_role_policy[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2764486067][0m
+[0m[1mdata.aws_availability_zones.available: Read complete after 0s [id=us-east-1][0m
+[0m[1mmodule.eks_blueprints.data.aws_caller_identity.current: Read complete after 0s [id=321852949023][0m
+[0m[1mmodule.eks_blueprints.data.aws_iam_session_context.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_iam_session_context.current: Read complete after 0s [id=arn:aws:iam::321852949023:user/capstone-project][0m
+[0m[1mmodule.eks_blueprints.data.aws_iam_policy_document.eks_key: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_iam_policy_document.eks_key: Read complete after 0s [id=3905327603][0m
+[0m[1mdata.aws_secretsmanager_secret_version.secret_atlantis_github_secret: Read complete after 0s [id=/dev/atlantis/github_secret|AWSCURRENT][0m
+[0m[1mdata.aws_secretsmanager_secret_version.secret_atlantis_github_token: Read complete after 0s [id=/dev/atlantis/github_token|AWSCURRENT][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create
+ [36m<=[0m read (data resources)
+[0m
+Terraform will perform the following actions:
+
+[1m  # module.eks_blueprints.data.aws_eks_cluster.cluster[0][0m will be read during apply[0m
+  # (config refers to values not yet known)[0m
+[0m [36m<=[0m[0m data "aws_eks_cluster" "cluster" {
+      [32m+[0m [0m[1m[0marn[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mcertificate_authority[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mcreated_at[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0menabled_cluster_log_types[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mendpoint[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0midentity[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mkubernetes_network_config[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mplatform_version[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mrole_arn[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mstatus[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mversion[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_config[0m[0m                = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.data.http.eks_cluster_readiness[0][0m will be read during apply[0m
+  # (config refers to values not yet known)[0m
+[0m [36m<=[0m[0m data "http" "eks_cluster_readiness" {
+      [32m+[0m [0m[1m[0mbody[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mca_certificate[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mresponse_headers[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtimeout[0m[0m          = 600
+      [32m+[0m [0m[1m[0murl[0m[0m              = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.kubernetes_config_map.aws_auth[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_config_map" "aws_auth" {
+      [32m+[0m [0m[1m[0mdata[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m   = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "Terraform"
+              [32m+[0m [0m"terraform.io/module"          = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "aws-auth"
+          [32m+[0m [0m[1m[0mnamespace[0m[0m        = "kube-system"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.data.aws_caller_identity.current[0m will be read during apply[0m
+  # (depends on a resource or a module with changes pending)[0m
+[0m [36m<=[0m[0m data "aws_caller_identity" "current" {
+      [32m+[0m [0m[1m[0maccount_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0marn[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0muser_id[0m[0m    = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.data.aws_eks_cluster.eks_cluster[0m will be read during apply[0m
+  # (config refers to values not yet known)[0m
+[0m [36m<=[0m[0m data "aws_eks_cluster" "eks_cluster" {
+      [32m+[0m [0m[1m[0marn[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mcertificate_authority[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mcreated_at[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0menabled_cluster_log_types[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mendpoint[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0midentity[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mkubernetes_network_config[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mplatform_version[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mrole_arn[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mstatus[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mversion[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_config[0m[0m                = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.data.aws_partition.current[0m will be read during apply[0m
+  # (depends on a resource or a module with changes pending)[0m
+[0m [36m<=[0m[0m data "aws_partition" "current" {
+      [32m+[0m [0m[1m[0mdns_suffix[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mpartition[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mreverse_dns_prefix[0m[0m = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.data.aws_region.current[0m will be read during apply[0m
+  # (depends on a resource or a module with changes pending)[0m
+[0m [36m<=[0m[0m data "aws_region" "current" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mendpoint[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m        = (known after apply)
+    }
+
+[1m  # module.vpc.aws_default_network_acl.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_default_network_acl" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_network_acl_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                   = {
+          [32m+[0m [0m"Name"             = "capstone-project-default"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = {
+          [32m+[0m [0m"Name"             = "capstone-project-default"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+
+      [32m+[0m [0megress {
+          [32m+[0m [0m[1m[0maction[0m[0m          = "allow"
+          [32m+[0m [0m[1m[0mfrom_port[0m[0m       = 0
+          [32m+[0m [0m[1m[0mipv6_cidr_block[0m[0m = "::/0"
+          [32m+[0m [0m[1m[0mprotocol[0m[0m        = "-1"
+          [32m+[0m [0m[1m[0mrule_no[0m[0m         = 101
+          [32m+[0m [0m[1m[0mto_port[0m[0m         = 0
+        }
+      [32m+[0m [0megress {
+          [32m+[0m [0m[1m[0maction[0m[0m     = "allow"
+          [32m+[0m [0m[1m[0mcidr_block[0m[0m = "0.0.0.0/0"
+          [32m+[0m [0m[1m[0mfrom_port[0m[0m  = 0
+          [32m+[0m [0m[1m[0mprotocol[0m[0m   = "-1"
+          [32m+[0m [0m[1m[0mrule_no[0m[0m    = 100
+          [32m+[0m [0m[1m[0mto_port[0m[0m    = 0
+        }
+
+      [32m+[0m [0mingress {
+          [32m+[0m [0m[1m[0maction[0m[0m          = "allow"
+          [32m+[0m [0m[1m[0mfrom_port[0m[0m       = 0
+          [32m+[0m [0m[1m[0mipv6_cidr_block[0m[0m = "::/0"
+          [32m+[0m [0m[1m[0mprotocol[0m[0m        = "-1"
+          [32m+[0m [0m[1m[0mrule_no[0m[0m         = 101
+          [32m+[0m [0m[1m[0mto_port[0m[0m         = 0
+        }
+      [32m+[0m [0mingress {
+          [32m+[0m [0m[1m[0maction[0m[0m     = "allow"
+          [32m+[0m [0m[1m[0mcidr_block[0m[0m = "0.0.0.0/0"
+          [32m+[0m [0m[1m[0mfrom_port[0m[0m  = 0
+          [32m+[0m [0m[1m[0mprotocol[0m[0m   = "-1"
+          [32m+[0m [0m[1m[0mrule_no[0m[0m    = 100
+          [32m+[0m [0m[1m[0mto_port[0m[0m    = 0
+        }
+    }
+
+[1m  # module.vpc.aws_default_route_table.default[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_default_route_table" "default" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_route_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mroute[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                   = {
+          [32m+[0m [0m"Name"             = "capstone-project-default"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = {
+          [32m+[0m [0m"Name"             = "capstone-project-default"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+
+      [32m+[0m [0mtimeouts {
+          [32m+[0m [0m[1m[0mcreate[0m[0m = "5m"
+          [32m+[0m [0m[1m[0mupdate[0m[0m = "5m"
+        }
+    }
+
+[1m  # module.vpc.aws_default_security_group.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_default_security_group" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0megress[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags[0m[0m                   = {
+          [32m+[0m [0m"Name"             = "capstone-project-default"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = {
+          [32m+[0m [0m"Name"             = "capstone-project-default"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # module.vpc.aws_eip.nat[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_eip" "nat" {
+      [32m+[0m [0m[1m[0mallocation_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0massociation_id[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mcarrier_ip[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mcustomer_owned_ip[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mdomain[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mnetwork_border_group[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mnetwork_interface[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_ip[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_dns[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_ip[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_ipv4_pool[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                 = {
+          [32m+[0m [0m"Name"             = "capstone-project-us-east-1a"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m             = {
+          [32m+[0m [0m"Name"             = "capstone-project-us-east-1a"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mvpc[0m[0m                  = true
+    }
+
+[1m  # module.vpc.aws_internet_gateway.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m     = {
+          [32m+[0m [0m"Name"             = "capstone-project"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m = {
+          [32m+[0m [0m"Name"             = "capstone-project"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m   = (known after apply)
+    }
+
+[1m  # module.vpc.aws_nat_gateway.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_nat_gateway" "this" {
+      [32m+[0m [0m[1m[0mallocation_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mconnectivity_type[0m[0m    = "public"
+      [32m+[0m [0m[1m[0mid[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_ip[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_ip[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                 = {
+          [32m+[0m [0m"Name"             = "capstone-project-us-east-1a"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m             = {
+          [32m+[0m [0m"Name"             = "capstone-project-us-east-1a"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+    }
+
+[1m  # module.vpc.aws_route.private_nat_gateway[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route" "private_nat_gateway" {
+      [32m+[0m [0m[1m[0mdestination_cidr_block[0m[0m = "0.0.0.0/0"
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0minstance_id[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0minstance_owner_id[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mnat_gateway_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0morigin[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mstate[0m[0m                  = (known after apply)
+
+      [32m+[0m [0mtimeouts {
+          [32m+[0m [0m[1m[0mcreate[0m[0m = "5m"
+        }
+    }
+
+[1m  # module.vpc.aws_route.public_internet_gateway[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route" "public_internet_gateway" {
+      [32m+[0m [0m[1m[0mdestination_cidr_block[0m[0m = "0.0.0.0/0"
+      [32m+[0m [0m[1m[0mgateway_id[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0minstance_id[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0minstance_owner_id[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0morigin[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mstate[0m[0m                  = (known after apply)
+
+      [32m+[0m [0mtimeouts {
+          [32m+[0m [0m[1m[0mcreate[0m[0m = "5m"
+        }
+    }
+
+[1m  # module.vpc.aws_route_table.private[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table" "private" {
+      [32m+[0m [0m[1m[0marn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpropagating_vgws[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m             = {
+          [32m+[0m [0m"Name"             = "capstone-project-private"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m         = {
+          [32m+[0m [0m"Name"             = "capstone-project-private"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m           = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table.public[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table" "public" {
+      [32m+[0m [0m[1m[0marn[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpropagating_vgws[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mroute[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m             = {
+          [32m+[0m [0m"Name"             = "capstone-project-public"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m         = {
+          [32m+[0m [0m"Name"             = "capstone-project-public"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m           = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table_association" "private" {
+      [32m+[0m [0m[1m[0mid[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[1][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table_association" "private" {
+      [32m+[0m [0m[1m[0mid[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[2][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table_association" "private" {
+      [32m+[0m [0m[1m[0mid[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m [0m[1m[0mid[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[1][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m [0m[1m[0mid[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[2][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m [0m[1m[0mid[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mroute_table_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.private[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "private" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1a"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "172.16.10.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                           = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-private-us-east-1a"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/internal-elb"        = "1"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-private-us-east-1a"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/internal-elb"        = "1"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.private[1][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "private" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1b"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "172.16.11.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                           = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-private-us-east-1b"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/internal-elb"        = "1"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-private-us-east-1b"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/internal-elb"        = "1"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.private[2][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "private" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1c"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "172.16.12.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                           = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-private-us-east-1c"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/internal-elb"        = "1"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-private-us-east-1c"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/internal-elb"        = "1"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.public[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1a"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "172.16.0.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = true
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                           = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-public-us-east-1a"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/elb"                 = "1"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-public-us-east-1a"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/elb"                 = "1"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.public[1][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1b"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "172.16.1.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = true
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                           = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-public-us-east-1b"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/elb"                 = "1"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-public-us-east-1b"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/elb"                 = "1"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.public[2][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                            = (known after apply)
+      [32m+[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1c"
+      [32m+[0m [0m[1m[0mavailability_zone_id[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                                     = "172.16.2.0/24"
+      [32m+[0m [0m[1m[0menable_dns64[0m[0m                                   = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false
+      [32m+[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false
+      [32m+[0m [0m[1m[0mid[0m[0m                                             = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_association_id[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_native[0m[0m                                    = false
+      [32m+[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = true
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                                       = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                           = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-public-us-east-1c"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/elb"                 = "1"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                                       = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-public-us-east-1c"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "shared"
+          [32m+[0m [0m"kubernetes.io/role/elb"                 = "1"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_vpc.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_vpc" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                  = (known after apply)
+      [32m+[0m [0m[1m[0massign_generated_ipv6_cidr_block[0m[0m     = false
+      [32m+[0m [0m[1m[0mcidr_block[0m[0m                           = "172.16.0.0/16"
+      [32m+[0m [0m[1m[0mdefault_network_acl_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_route_table_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mdefault_security_group_id[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mdhcp_options_id[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0menable_classiclink_dns_support[0m[0m       = (known after apply)
+      [32m+[0m [0m[1m[0menable_dns_hostnames[0m[0m                 = true
+      [32m+[0m [0m[1m[0menable_dns_support[0m[0m                   = true
+      [32m+[0m [0m[1m[0mid[0m[0m                                   = (known after apply)
+      [32m+[0m [0m[1m[0minstance_tenancy[0m[0m                     = "default"
+      [32m+[0m [0m[1m[0mipv6_association_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_cidr_block_network_border_group[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mmain_route_table_id[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mowner_id[0m[0m                             = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                                 = {
+          [32m+[0m [0m"Name"             = "capstone-project"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                             = {
+          [32m+[0m [0m"Name"             = "capstone-project"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.data.tls_certificate.this[0][0m will be read during apply[0m
+  # (config refers to values not yet known)[0m
+[0m [36m<=[0m[0m data "tls_certificate" "this" {
+      [32m+[0m [0m[1m[0mcertificates[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0murl[0m[0m          = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_ec2_tag.cluster_primary_security_group["capstone-project"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_ec2_tag" "cluster_primary_security_group" {
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mkey[0m[0m         = "capstone-project"
+      [32m+[0m [0m[1m[0mresource_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mvalue[0m[0m       = "true"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_ec2_tag.cluster_primary_security_group["created-on"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_ec2_tag" "cluster_primary_security_group" {
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mkey[0m[0m         = "created-on"
+      [32m+[0m [0m[1m[0mresource_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mvalue[0m[0m       = "120622-10PM"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_eks_cluster" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mcertificate_authority[0m[0m     = (known after apply)
+      [32m+[0m [0m[1m[0mcreated_at[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0menabled_cluster_log_types[0m[0m = [
+          [32m+[0m [0m"api",
+          [32m+[0m [0m"audit",
+          [32m+[0m [0m"authenticator",
+          [32m+[0m [0m"controllerManager",
+          [32m+[0m [0m"scheduler",
+        ]
+      [32m+[0m [0m[1m[0mendpoint[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0midentity[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                      = "capstone-project"
+      [32m+[0m [0m[1m[0mplatform_version[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mrole_arn[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mstatus[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                      = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                  = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mversion[0m[0m                   = "1.21"
+
+      [32m+[0m [0mencryption_config {
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"secrets",
+            ]
+
+          [32m+[0m [0mprovider {
+              [32m+[0m [0m[1m[0mkey_arn[0m[0m = (known after apply)
+            }
+        }
+
+      [32m+[0m [0mkubernetes_network_config {
+          [32m+[0m [0m[1m[0mip_family[0m[0m         = "ipv4"
+          [32m+[0m [0m[1m[0mservice_ipv4_cidr[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mtimeouts {}
+
+      [32m+[0m [0mvpc_config {
+          [32m+[0m [0m[1m[0mcluster_security_group_id[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mendpoint_private_access[0m[0m   = false
+          [32m+[0m [0m[1m[0mendpoint_public_access[0m[0m    = true
+          [32m+[0m [0m[1m[0mpublic_access_cidrs[0m[0m       = [
+              [32m+[0m [0m"0.0.0.0/0",
+            ]
+          [32m+[0m [0m[1m[0msecurity_group_ids[0m[0m        = (known after apply)
+          [32m+[0m [0m[1m[0msubnet_ids[0m[0m                = (known after apply)
+          [32m+[0m [0m[1m[0mvpc_id[0m[0m                    = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_iam_openid_connect_provider.oidc_provider[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_openid_connect_provider" "oidc_provider" {
+      [32m+[0m [0m[1m[0marn[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mclient_id_list[0m[0m  = [
+          [32m+[0m [0m"sts.amazonaws.com",
+        ]
+      [32m+[0m [0m[1m[0mid[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m            = {
+          [32m+[0m [0m"Name"             = "capstone-project-eks-irsa"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m        = {
+          [32m+[0m [0m"Name"             = "capstone-project-eks-irsa"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mthumbprint_list[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0murl[0m[0m             = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_iam_role.this[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0massume_role_policy[0m[0m    = jsonencode(
+            {
+              [32m+[0m [0mStatement = [
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction    = "sts:AssumeRole"
+                      [32m+[0m [0mEffect    = "Allow"
+                      [32m+[0m [0mPrincipal = {
+                          [32m+[0m [0mService = "eks.amazonaws.com"
+                        }
+                      [32m+[0m [0mSid       = "EKSClusterAssumeRole"
+                    },
+                ]
+              [32m+[0m [0mVersion   = "2012-10-17"
+            }
+        )
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mforce_detach_policies[0m[0m = true
+      [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mmanaged_policy_arns[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_session_duration[0m[0m  = 3600
+      [32m+[0m [0m[1m[0mname[0m[0m                  = "capstone-project-cluster-role"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m                  = "/"
+      [32m+[0m [0m[1m[0mtags[0m[0m                  = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m              = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0munique_id[0m[0m             = (known after apply)
+
+      [32m+[0m [0minline_policy {
+          [32m+[0m [0m[1m[0mname[0m[0m   = (known after apply)
+          [32m+[0m [0m[1m[0mpolicy[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+      [32m+[0m [0m[1m[0mrole[0m[0m       = "capstone-project-cluster-role"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+      [32m+[0m [0m[1m[0mrole[0m[0m       = "capstone-project-cluster-role"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group.cluster[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group" "cluster" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = "EKS cluster security group"
+      [32m+[0m [0m[1m[0megress[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m            = "capstone-project-cluster-"
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags[0m[0m                   = {
+          [32m+[0m [0m"Name"             = "capstone-project-cluster"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = {
+          [32m+[0m [0m"Name"             = "capstone-project-cluster"
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group.node[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group" "node" {
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m            = "EKS node shared security group"
+      [32m+[0m [0m[1m[0megress[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mingress[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m            = "capstone-project-node-"
+      [32m+[0m [0m[1m[0mowner_id[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false
+      [32m+[0m [0m[1m[0mtags[0m[0m                   = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-node"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "owned"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = {
+          [32m+[0m [0m"Name"                                   = "capstone-project-node"
+          [32m+[0m [0m"capstone-project"                       = "true"
+          [32m+[0m [0m"created-on"                             = "120622-10PM"
+          [32m+[0m [0m"kubernetes.io/cluster/capstone-project" = "owned"
+        }
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                 = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["egress_nodes_443"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "cluster" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Cluster API to node groups"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 443
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 443
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "egress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["egress_nodes_kubelet"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "cluster" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Cluster API to node kubelets"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 10250
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 10250
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "egress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["ingress_nodes_443"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "cluster" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Node groups to cluster API"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 443
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 443
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "ingress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_cluster_443"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Node groups to cluster API"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 443
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 443
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "egress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_https"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mcidr_blocks[0m[0m              = [
+          [32m+[0m [0m"0.0.0.0/0",
+        ]
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Egress all HTTPS to internet"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 443
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 443
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "egress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_ntp_tcp"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mcidr_blocks[0m[0m              = [
+          [32m+[0m [0m"0.0.0.0/0",
+        ]
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Egress NTP/TCP to internet"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 123
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 123
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "egress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_ntp_udp"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mcidr_blocks[0m[0m              = [
+          [32m+[0m [0m"0.0.0.0/0",
+        ]
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Egress NTP/UDP to internet"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 123
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "udp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 123
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "egress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_self_coredns_tcp"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Node to node CoreDNS"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 53
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = true
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 53
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "egress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_self_coredns_udp"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Node to node CoreDNS"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 53
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "udp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = true
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 53
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "egress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_cluster_443"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Cluster API to node groups"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 443
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 443
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "ingress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_cluster_kubelet"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Cluster API to node kubelets"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 10250
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = false
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 10250
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "ingress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_self_coredns_tcp"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Node to node CoreDNS"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 53
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "tcp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = true
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 53
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "ingress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_self_coredns_udp"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m [0m[1m[0mdescription[0m[0m              = "Node to node CoreDNS"
+      [32m+[0m [0m[1m[0mfrom_port[0m[0m                = 53
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mprefix_list_ids[0m[0m          = []
+      [32m+[0m [0m[1m[0mprotocol[0m[0m                 = "udp"
+      [32m+[0m [0m[1m[0msecurity_group_id[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mself[0m[0m                     = true
+      [32m+[0m [0m[1m[0msource_security_group_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mto_port[0m[0m                  = 53
+      [32m+[0m [0m[1m[0mtype[0m[0m                     = "ingress"
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].data.aws_iam_policy_document.managed_ng_assume_role_policy[0m will be read during apply[0m
+  # (depends on a resource or a module with changes pending)[0m
+[0m [36m<=[0m[0m data "aws_iam_policy_document" "managed_ng_assume_role_policy" {
+      [32m+[0m [0m[1m[0mid[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mjson[0m[0m = (known after apply)
+
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m = [
+              [32m+[0m [0m"sts:AssumeRole",
+            ]
+          [32m+[0m [0m[1m[0msid[0m[0m     = "EKSWorkerAssumeRole"
+
+          [32m+[0m [0mprincipals {
+              [32m+[0m [0m[1m[0midentifiers[0m[0m = [
+                  [32m+[0m [0m"ec2.amazonaws.com",
+                ]
+              [32m+[0m [0m[1m[0mtype[0m[0m        = "Service"
+            }
+        }
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_eks_node_group" "managed_ng" {
+      [32m+[0m [0m[1m[0mami_type[0m[0m               = "AL2_x86_64"
+      [32m+[0m [0m[1m[0marn[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mcapacity_type[0m[0m          = "ON_DEMAND"
+      [32m+[0m [0m[1m[0mcluster_name[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mdisk_size[0m[0m              = 50
+      [32m+[0m [0m[1m[0mid[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0minstance_types[0m[0m         = [
+          [32m+[0m [0m"m5.large",
+        ]
+      [32m+[0m [0m[1m[0mnode_group_name[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mnode_group_name_prefix[0m[0m = "capstone-project-managed-ondemand-"
+      [32m+[0m [0m[1m[0mnode_role_arn[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mrelease_version[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mresources[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mstatus[0m[0m                 = (known after apply)
+      [32m+[0m [0m[1m[0msubnet_ids[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mversion[0m[0m                = "1.21"
+
+      [32m+[0m [0mscaling_config {
+          [32m+[0m [0m[1m[0mdesired_size[0m[0m = 2
+          [32m+[0m [0m[1m[0mmax_size[0m[0m     = 3
+          [32m+[0m [0m[1m[0mmin_size[0m[0m     = 1
+        }
+
+      [32m+[0m [0mtimeouts {
+          [32m+[0m [0m[1m[0mcreate[0m[0m = "30m"
+          [32m+[0m [0m[1m[0mdelete[0m[0m = "30m"
+          [32m+[0m [0m[1m[0mupdate[0m[0m = "2h"
+        }
+
+      [32m+[0m [0mupdate_config {
+          [32m+[0m [0m[1m[0mmax_unavailable[0m[0m = 1
+        }
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_instance_profile.managed_ng[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_instance_profile" "managed_ng" {
+      [32m+[0m [0m[1m[0marn[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m        = "/"
+      [32m+[0m [0m[1m[0mrole[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m        = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m    = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0munique_id[0m[0m   = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role.managed_ng[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role" "managed_ng" {
+      [32m+[0m [0m[1m[0marn[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0massume_role_policy[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m           = "EKS Managed Node group IAM Role"
+      [32m+[0m [0m[1m[0mforce_detach_policies[0m[0m = true
+      [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mmanaged_policy_arns[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_session_duration[0m[0m  = 3600
+      [32m+[0m [0m[1m[0mname[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m                  = "/"
+      [32m+[0m [0m[1m[0mtags[0m[0m                  = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m              = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0munique_id[0m[0m             = (known after apply)
+
+      [32m+[0m [0minline_policy {
+          [32m+[0m [0m[1m[0mname[0m[0m   = (known after apply)
+          [32m+[0m [0m[1m[0mpolicy[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "managed_ng" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "managed_ng" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "managed_ng" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "managed_ng" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.kms[0].aws_kms_alias.this[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_kms_alias" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m           = "alias/capstone-project"
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mtarget_key_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtarget_key_id[0m[0m  = (known after apply)
+    }
+
+[1m  # module.eks_blueprints.module.kms[0].aws_kms_key.this[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_kms_key" "this" {
+      [32m+[0m [0m[1m[0marn[0m[0m                                = (known after apply)
+      [32m+[0m [0m[1m[0mbypass_policy_lockout_safety_check[0m[0m = false
+      [32m+[0m [0m[1m[0mcustomer_master_key_spec[0m[0m           = "SYMMETRIC_DEFAULT"
+      [32m+[0m [0m[1m[0mdeletion_window_in_days[0m[0m            = 30
+      [32m+[0m [0m[1m[0mdescription[0m[0m                        = "capstone-project EKS cluster secret encryption key"
+      [32m+[0m [0m[1m[0menable_key_rotation[0m[0m                = true
+      [32m+[0m [0m[1m[0mid[0m[0m                                 = (known after apply)
+      [32m+[0m [0m[1m[0mis_enabled[0m[0m                         = true
+      [32m+[0m [0m[1m[0mkey_id[0m[0m                             = (known after apply)
+      [32m+[0m [0m[1m[0mkey_usage[0m[0m                          = "ENCRYPT_DECRYPT"
+      [32m+[0m [0m[1m[0mmulti_region[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy[0m[0m                             = jsonencode(
+            {
+              [32m+[0m [0mStatement = [
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction    = [
+                          [32m+[0m [0m"kms:ReEncrypt*",
+                          [32m+[0m [0m"kms:GenerateDataKey*",
+                          [32m+[0m [0m"kms:Encrypt",
+                          [32m+[0m [0m"kms:DescribeKey",
+                          [32m+[0m [0m"kms:Decrypt",
+                          [32m+[0m [0m"kms:CreateGrant",
+                        ]
+                      [32m+[0m [0mCondition = {
+                          [32m+[0m [0mStringEquals = {
+                              [32m+[0m [0m"kms:CallerAccount" = "321852949023"
+                              [32m+[0m [0m"kms:ViaService"    = "eks.us-east-1.amazonaws.com"
+                            }
+                        }
+                      [32m+[0m [0mEffect    = "Allow"
+                      [32m+[0m [0mPrincipal = {
+                          [32m+[0m [0mAWS = "arn:aws:iam::321852949023:root"
+                        }
+                      [32m+[0m [0mResource  = "*"
+                      [32m+[0m [0mSid       = "Allow access for all principals in the account that are authorized"
+                    },
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction    = [
+                          [32m+[0m [0m"kms:RevokeGrant",
+                          [32m+[0m [0m"kms:List*",
+                          [32m+[0m [0m"kms:Get*",
+                          [32m+[0m [0m"kms:Describe*",
+                        ]
+                      [32m+[0m [0mEffect    = "Allow"
+                      [32m+[0m [0mPrincipal = {
+                          [32m+[0m [0mAWS = "arn:aws:iam::321852949023:root"
+                        }
+                      [32m+[0m [0mResource  = "*"
+                      [32m+[0m [0mSid       = "Allow direct access to key metadata to the account"
+                    },
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction    = "kms:*"
+                      [32m+[0m [0mEffect    = "Allow"
+                      [32m+[0m [0mPrincipal = {
+                          [32m+[0m [0mAWS = "arn:aws:iam::321852949023:user/capstone-project"
+                        }
+                      [32m+[0m [0mResource  = "*"
+                      [32m+[0m [0mSid       = "Allow access for Key Administrators"
+                    },
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction    = [
+                          [32m+[0m [0m"kms:ReEncrypt*",
+                          [32m+[0m [0m"kms:GenerateDataKey*",
+                          [32m+[0m [0m"kms:Encrypt",
+                          [32m+[0m [0m"kms:DescribeKey",
+                          [32m+[0m [0m"kms:Decrypt",
+                        ]
+                      [32m+[0m [0mEffect    = "Allow"
+                      [32m+[0m [0mPrincipal = {
+                          [32m+[0m [0mAWS = "arn:aws:iam::321852949023:role/capstone-project-cluster-role"
+                        }
+                      [32m+[0m [0mResource  = "*"
+                      [32m+[0m [0mSid       = "Allow use of the key"
+                    },
+                  [32m+[0m [0m{
+                      [32m+[0m [0mAction    = [
+                          [32m+[0m [0m"kms:RevokeGrant",
+                          [32m+[0m [0m"kms:ListGrants",
+                          [32m+[0m [0m"kms:CreateGrant",
+                        ]
+                      [32m+[0m [0mCondition = {
+                          [32m+[0m [0mBool = {
+                              [32m+[0m [0m"kms:GrantIsForAWSResource" = "true"
+                            }
+                        }
+                      [32m+[0m [0mEffect    = "Allow"
+                      [32m+[0m [0mPrincipal = {
+                          [32m+[0m [0mAWS = "arn:aws:iam::321852949023:role/capstone-project-cluster-role"
+                        }
+                      [32m+[0m [0mResource  = "*"
+                      [32m+[0m [0mSid       = "Allow attachment of persistent resources"
+                    },
+                ]
+              [32m+[0m [0mVersion   = "2012-10-17"
+            }
+        )
+      [32m+[0m [0m[1m[0mtags[0m[0m                               = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                           = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["addons"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "helm_release" "argocd_application" {
+      [32m+[0m [0m[1m[0matomic[0m[0m                     = false
+      [32m+[0m [0m[1m[0mchart[0m[0m                      = ".terraform/modules/eks_blueprints_kubernetes_addons/modules/kubernetes-addons/argocd/argocd-application"
+      [32m+[0m [0m[1m[0mcleanup_on_fail[0m[0m            = false
+      [32m+[0m [0m[1m[0mcreate_namespace[0m[0m           = false
+      [32m+[0m [0m[1m[0mdependency_update[0m[0m          = false
+      [32m+[0m [0m[1m[0mdisable_crd_hooks[0m[0m          = false
+      [32m+[0m [0m[1m[0mdisable_openapi_validation[0m[0m = false
+      [32m+[0m [0m[1m[0mdisable_webhooks[0m[0m           = false
+      [32m+[0m [0m[1m[0mforce_update[0m[0m               = false
+      [32m+[0m [0m[1m[0mid[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0mlint[0m[0m                       = false
+      [32m+[0m [0m[1m[0mmanifest[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_history[0m[0m                = 0
+      [32m+[0m [0m[1m[0mmetadata[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                       = "addons"
+      [32m+[0m [0m[1m[0mnamespace[0m[0m                  = "argocd"
+      [32m+[0m [0m[1m[0mrecreate_pods[0m[0m              = false
+      [32m+[0m [0m[1m[0mrender_subchart_notes[0m[0m      = true
+      [32m+[0m [0m[1m[0mreplace[0m[0m                    = false
+      [32m+[0m [0m[1m[0mreset_values[0m[0m               = false
+      [32m+[0m [0m[1m[0mreuse_values[0m[0m               = false
+      [32m+[0m [0m[1m[0mskip_crds[0m[0m                  = false
+      [32m+[0m [0m[1m[0mstatus[0m[0m                     = "deployed"
+      [32m+[0m [0m[1m[0mtimeout[0m[0m                    = 300
+      [32m+[0m [0m[1m[0mverify[0m[0m                     = false
+      [32m+[0m [0m[1m[0mversion[0m[0m                    = "0.1.0"
+      [32m+[0m [0m[1m[0mwait[0m[0m                       = true
+      [32m+[0m [0m[1m[0mwait_for_jobs[0m[0m              = false
+
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "destination.server"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "https://kubernetes.default.svc"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "name"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "addons"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "project"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "default"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.helm.releaseName"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "addons"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.helm.values"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = (known after apply)
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.path"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "chart"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.repoUrl"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "https://github.com/jamoroso-caylent/eks-blueprints-add-ons.git"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.targetRevision"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "HEAD"
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["workloads"][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "helm_release" "argocd_application" {
+      [32m+[0m [0m[1m[0matomic[0m[0m                     = false
+      [32m+[0m [0m[1m[0mchart[0m[0m                      = ".terraform/modules/eks_blueprints_kubernetes_addons/modules/kubernetes-addons/argocd/argocd-application"
+      [32m+[0m [0m[1m[0mcleanup_on_fail[0m[0m            = false
+      [32m+[0m [0m[1m[0mcreate_namespace[0m[0m           = false
+      [32m+[0m [0m[1m[0mdependency_update[0m[0m          = false
+      [32m+[0m [0m[1m[0mdisable_crd_hooks[0m[0m          = false
+      [32m+[0m [0m[1m[0mdisable_openapi_validation[0m[0m = false
+      [32m+[0m [0m[1m[0mdisable_webhooks[0m[0m           = false
+      [32m+[0m [0m[1m[0mforce_update[0m[0m               = false
+      [32m+[0m [0m[1m[0mid[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0mlint[0m[0m                       = false
+      [32m+[0m [0m[1m[0mmanifest[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_history[0m[0m                = 0
+      [32m+[0m [0m[1m[0mmetadata[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                       = "workloads"
+      [32m+[0m [0m[1m[0mnamespace[0m[0m                  = "argocd"
+      [32m+[0m [0m[1m[0mrecreate_pods[0m[0m              = false
+      [32m+[0m [0m[1m[0mrender_subchart_notes[0m[0m      = true
+      [32m+[0m [0m[1m[0mreplace[0m[0m                    = false
+      [32m+[0m [0m[1m[0mreset_values[0m[0m               = false
+      [32m+[0m [0m[1m[0mreuse_values[0m[0m               = false
+      [32m+[0m [0m[1m[0mskip_crds[0m[0m                  = false
+      [32m+[0m [0m[1m[0mstatus[0m[0m                     = "deployed"
+      [32m+[0m [0m[1m[0mtimeout[0m[0m                    = 300
+      [32m+[0m [0m[1m[0mverify[0m[0m                     = false
+      [32m+[0m [0m[1m[0mversion[0m[0m                    = "0.1.0"
+      [32m+[0m [0m[1m[0mwait[0m[0m                       = true
+      [32m+[0m [0m[1m[0mwait_for_jobs[0m[0m              = false
+
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "destination.server"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "https://kubernetes.default.svc"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "name"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "workloads"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "project"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "default"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.helm.releaseName"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "workloads"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.helm.values"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = (known after apply)
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.path"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "envs/qa"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.repoUrl"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "https://github.com/jamoroso-caylent/eks-blueprints-workloads.git"
+        }
+      [32m+[0m [0mset {
+          [32m+[0m [0m[1m[0mname[0m[0m  = "source.targetRevision"
+          [32m+[0m [0m[1m[0mvalue[0m[0m = "HEAD"
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.argocd[0].kubernetes_namespace_v1.this[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_namespace_v1" "this" {
+      [32m+[0m [0m[1m[0mid[0m[0m = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "argocd"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.atlantis[0].data.aws_iam_policy_document.atlantis[0m will be read during apply[0m
+  # (depends on a resource or a module with changes pending)[0m
+[0m [36m<=[0m[0m data "aws_iam_policy_document" "atlantis" {
+      [32m+[0m [0m[1m[0mid[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mjson[0m[0m = (known after apply)
+
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"*",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+          [32m+[0m [0m[1m[0msid[0m[0m       = "Atlantis"
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.atlantis[0].aws_iam_policy.atlantis[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_policy" "atlantis" {
+      [32m+[0m [0m[1m[0marn[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m = "IAM Policy for Atlantis"
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m        = "/"
+      [32m+[0m [0m[1m[0mpolicy[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m    = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].data.aws_iam_policy_document.aws_ebs_csi_driver[0][0m will be read during apply[0m
+  # (config refers to values not yet known)[0m
+[0m [36m<=[0m[0m data "aws_iam_policy_document" "aws_ebs_csi_driver" {
+      [32m+[0m [0m[1m[0mid[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mjson[0m[0m = (known after apply)
+
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:AttachVolume",
+              [32m+[0m [0m"ec2:CreateSnapshot",
+              [32m+[0m [0m"ec2:DescribeAvailabilityZones",
+              [32m+[0m [0m"ec2:DescribeInstances",
+              [32m+[0m [0m"ec2:DescribeSnapshots",
+              [32m+[0m [0m"ec2:DescribeTags",
+              [32m+[0m [0m"ec2:DescribeVolumes",
+              [32m+[0m [0m"ec2:DescribeVolumesModifications",
+              [32m+[0m [0m"ec2:DetachVolume",
+              [32m+[0m [0m"ec2:ModifyVolume",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateTags",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+              [32m+[0m [0m(known after apply),
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringEquals"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"CreateVolume",
+                  [32m+[0m [0m"CreateSnapshot",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "ec2:CreateAction"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:DeleteTags",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+              [32m+[0m [0m(known after apply),
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateVolume",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"true",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:RequestTag/ebs.csi.aws.com/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateVolume",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"*",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:RequestTag/CSIVolumeName"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateVolume",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"owned",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:RequestTag/kubernetes.io/cluster/*"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:DeleteVolume",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"true",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "ec2:ResourceTag/ebs.csi.aws.com/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:DeleteVolume",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"*",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "ec2:ResourceTag/CSIVolumeName"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:DeleteVolume",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"owned",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "ec2:ResourceTag/kubernetes.io/cluster/*"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:DeleteSnapshot",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"*",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "ec2:ResourceTag/CSIVolumeSnapshotName"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:DeleteSnapshot",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"true",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "ec2:ResourceTag/ebs.csi.aws.com/cluster"
+            }
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_eks_addon" "aws_ebs_csi_driver" {
+      [32m+[0m [0m[1m[0maddon_name[0m[0m               = "aws-ebs-csi-driver"
+      [32m+[0m [0m[1m[0maddon_version[0m[0m            = (known after apply)
+      [32m+[0m [0m[1m[0marn[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mcluster_name[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mcreated_at[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mmodified_at[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mpreserve[0m[0m                 = true
+      [32m+[0m [0m[1m[0mservice_account_role_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                     = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m                 = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_iam_policy.aws_ebs_csi_driver[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_policy" "aws_ebs_csi_driver" {
+      [32m+[0m [0m[1m[0marn[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m = "IAM Policy for AWS EBS CSI Driver"
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m        = "/"
+      [32m+[0m [0m[1m[0mpolicy[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m        = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m    = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].data.aws_iam_policy_document.aws_lb[0m will be read during apply[0m
+  # (config refers to values not yet known)[0m
+[0m [36m<=[0m[0m data "aws_iam_policy_document" "aws_lb" {
+      [32m+[0m [0m[1m[0mid[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mjson[0m[0m = (known after apply)
+
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:DescribeAccountAttributes",
+              [32m+[0m [0m"ec2:DescribeAddresses",
+              [32m+[0m [0m"ec2:DescribeAvailabilityZones",
+              [32m+[0m [0m"ec2:DescribeCoipPools",
+              [32m+[0m [0m"ec2:DescribeInstances",
+              [32m+[0m [0m"ec2:DescribeInternetGateways",
+              [32m+[0m [0m"ec2:DescribeNetworkInterfaces",
+              [32m+[0m [0m"ec2:DescribeSecurityGroups",
+              [32m+[0m [0m"ec2:DescribeSubnets",
+              [32m+[0m [0m"ec2:DescribeTags",
+              [32m+[0m [0m"ec2:DescribeVpcPeeringConnections",
+              [32m+[0m [0m"ec2:DescribeVpcs",
+              [32m+[0m [0m"ec2:GetCoipPoolUsage",
+              [32m+[0m [0m"elasticloadbalancing:DescribeListenerCertificates",
+              [32m+[0m [0m"elasticloadbalancing:DescribeListeners",
+              [32m+[0m [0m"elasticloadbalancing:DescribeLoadBalancerAttributes",
+              [32m+[0m [0m"elasticloadbalancing:DescribeLoadBalancers",
+              [32m+[0m [0m"elasticloadbalancing:DescribeRules",
+              [32m+[0m [0m"elasticloadbalancing:DescribeSSLPolicies",
+              [32m+[0m [0m"elasticloadbalancing:DescribeTags",
+              [32m+[0m [0m"elasticloadbalancing:DescribeTargetGroupAttributes",
+              [32m+[0m [0m"elasticloadbalancing:DescribeTargetGroups",
+              [32m+[0m [0m"elasticloadbalancing:DescribeTargetHealth",
+              [32m+[0m [0m"iam:CreateServiceLinkedRole",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"acm:DescribeCertificate",
+              [32m+[0m [0m"acm:ListCertificates",
+              [32m+[0m [0m"cognito-idp:DescribeUserPoolClient",
+              [32m+[0m [0m"iam:GetServerCertificate",
+              [32m+[0m [0m"iam:ListServerCertificates",
+              [32m+[0m [0m"shield:CreateProtection",
+              [32m+[0m [0m"shield:DeleteProtection",
+              [32m+[0m [0m"shield:DescribeProtection",
+              [32m+[0m [0m"shield:GetSubscriptionState",
+              [32m+[0m [0m"waf-regional:AssociateWebACL",
+              [32m+[0m [0m"waf-regional:DisassociateWebACL",
+              [32m+[0m [0m"waf-regional:GetWebACL",
+              [32m+[0m [0m"waf-regional:GetWebACLForResource",
+              [32m+[0m [0m"wafv2:AssociateWebACL",
+              [32m+[0m [0m"wafv2:DisassociateWebACL",
+              [32m+[0m [0m"wafv2:GetWebACL",
+              [32m+[0m [0m"wafv2:GetWebACLForResource",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:AuthorizeSecurityGroupIngress",
+              [32m+[0m [0m"ec2:RevokeSecurityGroupIngress",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateSecurityGroup",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateTags",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"false",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:RequestTag/elbv2.k8s.aws/cluster"
+            }
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringEquals"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"CreateSecurityGroup",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "ec2:CreateAction"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateTags",
+              [32m+[0m [0m"ec2:DeleteTags",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"false",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:ResourceTag/ingress.k8s.aws/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"elasticloadbalancing:AddTags",
+              [32m+[0m [0m"elasticloadbalancing:DeleteTargetGroup",
+              [32m+[0m [0m"elasticloadbalancing:RemoveTags",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+              [32m+[0m [0m(known after apply),
+              [32m+[0m [0m(known after apply),
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"false",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:ResourceTag/ingress.k8s.aws/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateTags",
+              [32m+[0m [0m"ec2:DeleteTags",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"false",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:ResourceTag/elbv2.k8s.aws/cluster"
+            }
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"true",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:RequestTag/elbv2.k8s.aws/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:AuthorizeSecurityGroupIngress",
+              [32m+[0m [0m"ec2:DeleteSecurityGroup",
+              [32m+[0m [0m"ec2:RevokeSecurityGroupIngress",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"false",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:ResourceTag/elbv2.k8s.aws/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"elasticloadbalancing:CreateLoadBalancer",
+              [32m+[0m [0m"elasticloadbalancing:CreateTargetGroup",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"false",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:RequestTag/elbv2.k8s.aws/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"elasticloadbalancing:CreateListener",
+              [32m+[0m [0m"elasticloadbalancing:CreateRule",
+              [32m+[0m [0m"elasticloadbalancing:DeleteListener",
+              [32m+[0m [0m"elasticloadbalancing:DeleteRule",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"elasticloadbalancing:AddTags",
+              [32m+[0m [0m"elasticloadbalancing:RemoveTags",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+              [32m+[0m [0m(known after apply),
+              [32m+[0m [0m(known after apply),
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"false",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:ResourceTag/elbv2.k8s.aws/cluster"
+            }
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"true",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:RequestTag/elbv2.k8s.aws/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"elasticloadbalancing:DeleteLoadBalancer",
+              [32m+[0m [0m"elasticloadbalancing:DeleteTargetGroup",
+              [32m+[0m [0m"elasticloadbalancing:ModifyLoadBalancerAttributes",
+              [32m+[0m [0m"elasticloadbalancing:ModifyTargetGroup",
+              [32m+[0m [0m"elasticloadbalancing:ModifyTargetGroupAttributes",
+              [32m+[0m [0m"elasticloadbalancing:SetIpAddressType",
+              [32m+[0m [0m"elasticloadbalancing:SetSecurityGroups",
+              [32m+[0m [0m"elasticloadbalancing:SetSubnets",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "Null"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"false",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "aws:ResourceTag/elbv2.k8s.aws/cluster"
+            }
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"elasticloadbalancing:DeregisterTargets",
+              [32m+[0m [0m"elasticloadbalancing:RegisterTargets",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"elasticloadbalancing:AddListenerCertificates",
+              [32m+[0m [0m"elasticloadbalancing:ModifyListener",
+              [32m+[0m [0m"elasticloadbalancing:ModifyRule",
+              [32m+[0m [0m"elasticloadbalancing:RemoveListenerCertificates",
+              [32m+[0m [0m"elasticloadbalancing:SetWebAcl",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].aws_iam_policy.aws_load_balancer_controller[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_policy" "aws_load_balancer_controller" {
+      [32m+[0m [0m[1m[0marn[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m = "Allows lb controller to manage ALB and NLB"
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m        = "/"
+      [32m+[0m [0m[1m[0mpolicy[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m        = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+      [32m+[0m [0m[1m[0mtags_all[0m[0m    = {
+          [32m+[0m [0m"capstone-project" = "true"
+          [32m+[0m [0m"created-on"       = "120622-10PM"
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_iam_policy_document.external_dns_iam_policy_document[0m will be read during apply[0m
+  # (config refers to values not yet known)[0m
+[0m [36m<=[0m[0m data "aws_iam_policy_document" "external_dns_iam_policy_document" {
+      [32m+[0m [0m[1m[0mid[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mjson[0m[0m = (known after apply)
+
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"route53:ChangeResourceRecordSets",
+              [32m+[0m [0m"route53:ListResourceRecordSets",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m(known after apply),
+            ]
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"route53:ListHostedZones",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_route53_zone.selected[0m will be read during apply[0m
+  # (depends on a resource or a module with changes pending)[0m
+[0m [36m<=[0m[0m data "aws_route53_zone" "selected" {
+      [32m+[0m [0m[1m[0marn[0m[0m                        = (known after apply)
+      [32m+[0m [0m[1m[0mcaller_reference[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mcomment[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0mlinked_service_description[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mlinked_service_principal[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                       = "jamoroso.com"
+      [32m+[0m [0m[1m[0mname_servers[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mresource_record_set_count[0m[0m  = (known after apply)
+      [32m+[0m [0m[1m[0mtags[0m[0m                       = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_id[0m[0m                     = (known after apply)
+      [32m+[0m [0m[1m[0mzone_id[0m[0m                    = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.external_dns[0].aws_iam_policy.external_dns[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_policy" "external_dns" {
+      [32m+[0m [0m[1m[0marn[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m = "External DNS IAM policy."
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m        = "/"
+      [32m+[0m [0m[1m[0mpolicy[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m    = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.karpenter[0].data.aws_iam_policy_document.karpenter[0m will be read during apply[0m
+  # (depends on a resource or a module with changes pending)[0m
+[0m [36m<=[0m[0m data "aws_iam_policy_document" "karpenter" {
+      [32m+[0m [0m[1m[0mid[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mjson[0m[0m = (known after apply)
+
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:CreateFleet",
+              [32m+[0m [0m"ec2:CreateLaunchTemplate",
+              [32m+[0m [0m"ec2:CreateTags",
+              [32m+[0m [0m"ec2:DeleteLaunchTemplate",
+              [32m+[0m [0m"ec2:DescribeAvailabilityZones",
+              [32m+[0m [0m"ec2:DescribeInstanceTypeOfferings",
+              [32m+[0m [0m"ec2:DescribeInstanceTypes",
+              [32m+[0m [0m"ec2:DescribeInstances",
+              [32m+[0m [0m"ec2:DescribeLaunchTemplates",
+              [32m+[0m [0m"ec2:DescribeSecurityGroups",
+              [32m+[0m [0m"ec2:DescribeSubnets",
+              [32m+[0m [0m"ec2:RunInstances",
+              [32m+[0m [0m"iam:PassRole",
+              [32m+[0m [0m"ssm:GetParameter",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+          [32m+[0m [0m[1m[0msid[0m[0m       = "Karpenter"
+        }
+      [32m+[0m [0mstatement {
+          [32m+[0m [0m[1m[0mactions[0m[0m   = [
+              [32m+[0m [0m"ec2:TerminateInstances",
+            ]
+          [32m+[0m [0m[1m[0meffect[0m[0m    = "Allow"
+          [32m+[0m [0m[1m[0mresources[0m[0m = [
+              [32m+[0m [0m"*",
+            ]
+          [32m+[0m [0m[1m[0msid[0m[0m       = "ConditionalEC2Termination"
+
+          [32m+[0m [0mcondition {
+              [32m+[0m [0m[1m[0mtest[0m[0m     = "StringLike"
+              [32m+[0m [0m[1m[0mvalues[0m[0m   = [
+                  [32m+[0m [0m"*karpenter*",
+                ]
+              [32m+[0m [0m[1m[0mvariable[0m[0m = "ec2:ResourceTag/Name"
+            }
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.karpenter[0].aws_iam_policy.karpenter[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_policy" "karpenter" {
+      [32m+[0m [0m[1m[0marn[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m = "IAM Policy for Karpenter"
+      [32m+[0m [0m[1m[0mid[0m[0m          = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m        = "/"
+      [32m+[0m [0m[1m[0mpolicy[0m[0m      = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_id[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m    = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "helm_release" "addon" {
+      [32m+[0m [0m[1m[0matomic[0m[0m                     = false
+      [32m+[0m [0m[1m[0mchart[0m[0m                      = "argo-cd"
+      [32m+[0m [0m[1m[0mcleanup_on_fail[0m[0m            = false
+      [32m+[0m [0m[1m[0mcreate_namespace[0m[0m           = true
+      [32m+[0m [0m[1m[0mdependency_update[0m[0m          = false
+      [32m+[0m [0m[1m[0mdescription[0m[0m                = "The ArgoCD Helm Chart deployment configuration"
+      [32m+[0m [0m[1m[0mdisable_crd_hooks[0m[0m          = false
+      [32m+[0m [0m[1m[0mdisable_openapi_validation[0m[0m = false
+      [32m+[0m [0m[1m[0mdisable_webhooks[0m[0m           = false
+      [32m+[0m [0m[1m[0mforce_update[0m[0m               = false
+      [32m+[0m [0m[1m[0mid[0m[0m                         = (known after apply)
+      [32m+[0m [0m[1m[0mlint[0m[0m                       = false
+      [32m+[0m [0m[1m[0mmanifest[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_history[0m[0m                = 0
+      [32m+[0m [0m[1m[0mmetadata[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mname[0m[0m                       = "argo-cd"
+      [32m+[0m [0m[1m[0mnamespace[0m[0m                  = "argocd"
+      [32m+[0m [0m[1m[0mrecreate_pods[0m[0m              = false
+      [32m+[0m [0m[1m[0mrender_subchart_notes[0m[0m      = true
+      [32m+[0m [0m[1m[0mreplace[0m[0m                    = false
+      [32m+[0m [0m[1m[0mrepository[0m[0m                 = "https://argoproj.github.io/argo-helm"
+      [32m+[0m [0m[1m[0mreset_values[0m[0m               = false
+      [32m+[0m [0m[1m[0mreuse_values[0m[0m               = false
+      [32m+[0m [0m[1m[0mskip_crds[0m[0m                  = false
+      [32m+[0m [0m[1m[0mstatus[0m[0m                     = "deployed"
+      [32m+[0m [0m[1m[0mtimeout[0m[0m                    = 1200
+      [32m+[0m [0m[1m[0mvalues[0m[0m                     = [
+          [32m+[0m [0m<<-EOT
+                server:
+                  ingress:
+                    enabled: true
+                    annotations:
+                      alb.ingress.kubernetes.io/backend-protocol: HTTPS
+                      alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443},{"HTTP":80}]'
+                      alb.ingress.kubernetes.io/ssl-redirect: '443'
+                      alb.ingress.kubernetes.io/scheme: internet-facing
+                      alb.ingress.kubernetes.io/target-type: ip
+                      external-dns.alpha.kubernetes.io/hostname: argocd.jamoroso.com
+                      alb.ingress.kubernetes.io/group.name: ci-cd-ingress
+                      kubernetes.io/ingress.class: alb
+                    tls:
+                      - hosts:
+                        - argocd.jamoroso.com
+                    hosts: [argocd.jamoroso.com]
+                  ingressGrpc:
+                    enabled: true
+                    isAWSALB: true
+                    awsALB:
+                      serviceType: ClusterIP
+            EOT,
+        ]
+      [32m+[0m [0m[1m[0mverify[0m[0m                     = false
+      [32m+[0m [0m[1m[0mversion[0m[0m                    = "3.33.3"
+      [32m+[0m [0m[1m[0mwait[0m[0m                       = false
+      [32m+[0m [0m[1m[0mwait_for_jobs[0m[0m              = false
+
+      [32m+[0m [0mpostrender {}
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].module.irsa_addon[0].aws_iam_role.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role" "irsa" {
+      [32m+[0m [0m[1m[0marn[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0massume_role_policy[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m           = "AWS IAM Role for the Kubernetes service account ebs-csi-controller-sa."
+      [32m+[0m [0m[1m[0mforce_detach_policies[0m[0m = true
+      [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mmanaged_policy_arns[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_session_duration[0m[0m  = 3600
+      [32m+[0m [0m[1m[0mname[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m                  = "/"
+      [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0munique_id[0m[0m             = (known after apply)
+
+      [32m+[0m [0minline_policy {
+          [32m+[0m [0m[1m[0mname[0m[0m   = (known after apply)
+          [32m+[0m [0m[1m[0mpolicy[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].module.irsa_addon[0].aws_iam_role_policy_attachment.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "irsa" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role" "irsa" {
+      [32m+[0m [0m[1m[0marn[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0massume_role_policy[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m           = "AWS IAM Role for the Kubernetes service account atlantis."
+      [32m+[0m [0m[1m[0mforce_detach_policies[0m[0m = true
+      [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mmanaged_policy_arns[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_session_duration[0m[0m  = 3600
+      [32m+[0m [0m[1m[0mname[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m                  = "/"
+      [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0munique_id[0m[0m             = (known after apply)
+
+      [32m+[0m [0minline_policy {
+          [32m+[0m [0m[1m[0mname[0m[0m   = (known after apply)
+          [32m+[0m [0m[1m[0mpolicy[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "irsa" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_namespace_v1" "irsa" {
+      [32m+[0m [0m[1m[0mid[0m[0m = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "atlantis"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_service_account_v1" "irsa" {
+      [32m+[0m [0m[1m[0mautomount_service_account_token[0m[0m = true
+      [32m+[0m [0m[1m[0mdefault_secret_name[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                              = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mannotations[0m[0m      = (known after apply)
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "atlantis"
+          [32m+[0m [0m[1m[0mnamespace[0m[0m        = "atlantis"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role" "irsa" {
+      [32m+[0m [0m[1m[0marn[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0massume_role_policy[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m           = "AWS IAM Role for the Kubernetes service account aws-load-balancer-controller-sa."
+      [32m+[0m [0m[1m[0mforce_detach_policies[0m[0m = true
+      [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mmanaged_policy_arns[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_session_duration[0m[0m  = 3600
+      [32m+[0m [0m[1m[0mname[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m                  = "/"
+      [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0munique_id[0m[0m             = (known after apply)
+
+      [32m+[0m [0minline_policy {
+          [32m+[0m [0m[1m[0mname[0m[0m   = (known after apply)
+          [32m+[0m [0m[1m[0mpolicy[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "irsa" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_service_account_v1" "irsa" {
+      [32m+[0m [0m[1m[0mautomount_service_account_token[0m[0m = true
+      [32m+[0m [0m[1m[0mdefault_secret_name[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                              = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mannotations[0m[0m      = (known after apply)
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "aws-load-balancer-controller-sa"
+          [32m+[0m [0m[1m[0mnamespace[0m[0m        = "kube-system"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role" "irsa" {
+      [32m+[0m [0m[1m[0marn[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0massume_role_policy[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m           = "AWS IAM Role for the Kubernetes service account external-dns-sa."
+      [32m+[0m [0m[1m[0mforce_detach_policies[0m[0m = true
+      [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mmanaged_policy_arns[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_session_duration[0m[0m  = 3600
+      [32m+[0m [0m[1m[0mname[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m                  = "/"
+      [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0munique_id[0m[0m             = (known after apply)
+
+      [32m+[0m [0minline_policy {
+          [32m+[0m [0m[1m[0mname[0m[0m   = (known after apply)
+          [32m+[0m [0m[1m[0mpolicy[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "irsa" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_namespace_v1" "irsa" {
+      [32m+[0m [0m[1m[0mid[0m[0m = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "external-dns"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_service_account_v1" "irsa" {
+      [32m+[0m [0m[1m[0mautomount_service_account_token[0m[0m = true
+      [32m+[0m [0m[1m[0mdefault_secret_name[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                              = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mannotations[0m[0m      = (known after apply)
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "external-dns-sa"
+          [32m+[0m [0m[1m[0mnamespace[0m[0m        = "external-dns"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role" "irsa" {
+      [32m+[0m [0m[1m[0marn[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0massume_role_policy[0m[0m    = (known after apply)
+      [32m+[0m [0m[1m[0mcreate_date[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mdescription[0m[0m           = "AWS IAM Role for the Kubernetes service account karpenter."
+      [32m+[0m [0m[1m[0mforce_detach_policies[0m[0m = true
+      [32m+[0m [0m[1m[0mid[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0mmanaged_policy_arns[0m[0m   = (known after apply)
+      [32m+[0m [0m[1m[0mmax_session_duration[0m[0m  = 3600
+      [32m+[0m [0m[1m[0mname[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mname_prefix[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mpath[0m[0m                  = "/"
+      [32m+[0m [0m[1m[0mtags[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mtags_all[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0munique_id[0m[0m             = (known after apply)
+
+      [32m+[0m [0minline_policy {
+          [32m+[0m [0m[1m[0mname[0m[0m   = (known after apply)
+          [32m+[0m [0m[1m[0mpolicy[0m[0m = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "irsa" {
+      [32m+[0m [0m[1m[0mid[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mpolicy_arn[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mrole[0m[0m       = (known after apply)
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_namespace_v1" "irsa" {
+      [32m+[0m [0m[1m[0mid[0m[0m = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "karpenter"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[1m  # module.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0][0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "kubernetes_service_account_v1" "irsa" {
+      [32m+[0m [0m[1m[0mautomount_service_account_token[0m[0m = true
+      [32m+[0m [0m[1m[0mdefault_secret_name[0m[0m             = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                              = (known after apply)
+
+      [32m+[0m [0mmetadata {
+          [32m+[0m [0m[1m[0mannotations[0m[0m      = (known after apply)
+          [32m+[0m [0m[1m[0mgeneration[0m[0m       = (known after apply)
+          [32m+[0m [0m[1m[0mlabels[0m[0m           = {
+              [32m+[0m [0m"app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+            }
+          [32m+[0m [0m[1m[0mname[0m[0m             = "karpenter"
+          [32m+[0m [0m[1m[0mnamespace[0m[0m        = "karpenter"
+          [32m+[0m [0m[1m[0mresource_version[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0muid[0m[0m              = (known after apply)
+        }
+    }
+
+[0m[1mPlan:[0m 82 to add, 0 to change, 0 to destroy.
+[0m[0m
+[1mChanges to Outputs:[0m[0m
+  [32m+[0m [0m[1m[0mconfigure_kubectl[0m[0m = (known after apply)
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_vpc.this[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.kms[0].aws_kms_key.this: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_eip.nat[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_eip.nat[0]: Creation complete after 0s [id=eipalloc-0465e973339debfa7][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role.this[0]: Creation complete after 1s [id=capstone-project-cluster-role][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"]: Creation complete after 0s [id=capstone-project-cluster-role-20220621021229243600000001][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_role_policy_attachment.this["arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"]: Creation complete after 1s [id=capstone-project-cluster-role-20220621021229368700000002][0m
+[0m[1mmodule.vpc.aws_vpc.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.kms[0].aws_kms_key.this: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_vpc.this[0]: Creation complete after 13s [id=vpc-065b475c077f8c501][0m
+[0m[1mmodule.vpc.aws_default_security_group.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_internet_gateway.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_default_route_table.default[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[2]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[1]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_default_network_acl.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_default_route_table.default[0]: Creation complete after 0s [id=rtb-0cfab82b9286a8a53][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table.private[0]: Creation complete after 1s [id=rtb-0c96c84f1e5eafc34][0m
+[0m[1mmodule.vpc.aws_subnet.public[2]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[1]: Creation complete after 1s [id=subnet-0ea4d76bb50ec3660][0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Creation complete after 1s [id=subnet-0f4107f09a0ff88f2][0m
+[0m[1mmodule.vpc.aws_route_table.public[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group.node[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_internet_gateway.this[0]: Creation complete after 1s [id=igw-058217922bdb13cc7][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group.cluster[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.private[2]: Creation complete after 1s [id=subnet-0c4670251e5f5c555][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[2]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table.public[0]: Creation complete after 1s [id=rtb-00ffc704026bd2f24][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_default_security_group.this[0]: Creation complete after 2s [id=sg-0e919de9ef5c1d9ae][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[1]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.private[2]: Creation complete after 1s [id=rtbassoc-0187dc68be34584ed][0m
+[0m[1mmodule.vpc.aws_route.public_internet_gateway[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_default_network_acl.this[0]: Creation complete after 2s [id=acl-0ed1122df91aa72f3][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[1]: Creation complete after 0s [id=rtbassoc-041695217b300802f][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Creation complete after 0s [id=rtbassoc-0cd57abdf48368075][0m
+[0m[1mmodule.vpc.aws_route.public_internet_gateway[0]: Creation complete after 0s [id=r-rtb-00ffc704026bd2f241080289494][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group.node[0]: Creation complete after 2s [id=sg-0dd14d059e2a1443a][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group.cluster[0]: Creation complete after 2s [id=sg-0d7ffc3ffd2888930][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["egress_nodes_443"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_cluster_kubelet"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["ingress_nodes_443"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["egress_nodes_kubelet"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_self_coredns_udp"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_self_coredns_tcp"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_cluster_kubelet"]: Creation complete after 1s [id=sgrule-3793091028][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["egress_nodes_443"]: Creation complete after 1s [id=sgrule-2408327970][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_ntp_udp"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_cluster_443"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_self_coredns_udp"]: Creation complete after 2s [id=sgrule-2462558537][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["ingress_nodes_443"]: Creation complete after 2s [id=sgrule-327574062][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_self_coredns_udp"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_cluster_443"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.cluster["egress_nodes_kubelet"]: Creation complete after 3s [id=sgrule-1715177785][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_self_coredns_tcp"]: Creation complete after 3s [id=sgrule-4264952720][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_self_coredns_tcp"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_ntp_tcp"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_ntp_udp"]: Creation complete after 3s [id=sgrule-4059127790][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_https"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.kms[0].aws_kms_key.this: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_cluster_443"]: Creation complete after 4s [id=sgrule-2003284768][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_self_coredns_udp"]: Creation complete after 3s [id=sgrule-1884389878][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_cluster_443"]: Creation complete after 4s [id=sgrule-324911375][0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.kms[0].aws_kms_key.this: Creation complete after 23s [id=c6c94dea-f7f7-445b-9440-80e241c45c4a][0m
+[0m[1mmodule.eks_blueprints.module.kms[0].aws_kms_alias.this: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["ingress_self_coredns_tcp"]: Creation complete after 4s [id=sgrule-915933862][0m
+[0m[1mmodule.eks_blueprints.module.kms[0].aws_kms_alias.this: Creation complete after 0s [id=alias/capstone-project][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[2]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_ntp_tcp"]: Creation complete after 5s [id=sgrule-2406447843][0m
+[0m[1mmodule.vpc.aws_subnet.public[2]: Creation complete after 11s [id=subnet-08b7e505e1981d026][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_security_group_rule.node["egress_https"]: Creation complete after 5s [id=sgrule-1353795581][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Creation complete after 12s [id=subnet-0b2888523c1b0d6c0][0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Creation complete after 12s [id=subnet-0af5b1c376dd2946a][0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Creation complete after 27s [id=rtbassoc-089ce0a0a49a9834c][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Creation complete after 34s [id=rtbassoc-0a29ba76e58bfc9a0][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Creation complete after 35s [id=rtbassoc-0deaefb93a95bc512][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_nat_gateway.this[0]: Creation complete after 1m46s [id=nat-03a586ac17a92149c][0m
+[0m[1mmodule.vpc.aws_route.private_nat_gateway[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route.private_nat_gateway[0]: Creation complete after 1s [id=r-rtb-0c96c84f1e5eafc341080289494][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [1m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [2m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [2m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [2m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [2m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [2m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [2m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [3m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [3m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [3m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [3m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [3m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [3m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [4m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [4m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [4m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [4m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [4m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [4m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [5m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [5m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [5m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [5m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [5m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [5m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [6m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [6m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [6m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [6m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [6m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [6m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [7m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [7m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [7m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [7m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [7m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [7m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [8m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [8m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [8m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [8m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [8m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [8m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [9m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [9m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [9m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [9m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Still creating... [9m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_eks_cluster.this[0]: Creation complete after 9m47s [id=capstone-project][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.tls_certificate.this[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_ec2_tag.cluster_primary_security_group["capstone-project"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_eks_cluster.cluster[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_ec2_tag.cluster_primary_security_group["created-on"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.data.aws_eks_cluster.cluster[0]: Read complete after 0s [id=capstone-project][0m
+[0m[1mmodule.eks_blueprints.data.http.eks_cluster_readiness[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.data.tls_certificate.this[0]: Read complete after 1s [id=afff7c9d2e2999b38d9db7af1323317c0857363c][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_openid_connect_provider.oidc_provider[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.data.http.eks_cluster_readiness[0]: Read complete after 1s [id=https://347A7619D3E9C67DFAA0409EED683797.gr7.us-east-1.eks.amazonaws.com/healthz][0m
+[0m[1mmodule.eks_blueprints.kubernetes_config_map.aws_auth[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_ec2_tag.cluster_primary_security_group["capstone-project"]: Creation complete after 1s [id=sg-0a80dd6188cc6e72f,capstone-project][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_ec2_tag.cluster_primary_security_group["created-on"]: Creation complete after 1s [id=sg-0a80dd6188cc6e72f,created-on][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks.aws_iam_openid_connect_provider.oidc_provider[0]: Creation complete after 0s [id=arn:aws:iam::321852949023:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/347A7619D3E9C67DFAA0409EED683797][0m
+[0m[1mmodule.eks_blueprints.kubernetes_config_map.aws_auth[0]: Creation complete after 2s [id=kube-system/aws-auth][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].data.aws_iam_policy_document.managed_ng_assume_role_policy: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].data.aws_iam_policy_document.managed_ng_assume_role_policy: Read complete after 0s [id=3778018924][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role.managed_ng[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role.managed_ng[0]: Creation complete after 1s [id=capstone-project-capstone-project-managed-ondemand][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_instance_profile.managed_ng[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"]: Creation complete after 0s [id=capstone-project-capstone-project-managed-ondemand-20220621022243788400000005][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"]: Creation complete after 0s [id=capstone-project-capstone-project-managed-ondemand-20220621022244119000000008][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_instance_profile.managed_ng[0]: Creation complete after 1s [id=capstone-project-capstone-project-managed-ondemand][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"]: Creation complete after 1s [id=capstone-project-capstone-project-managed-ondemand-20220621022243935900000006][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_iam_role_policy_attachment.managed_ng["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"]: Creation complete after 1s [id=capstone-project-capstone-project-managed-ondemand-20220621022244085300000007][0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [1m50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [2m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [2m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [2m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Still creating... [2m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints.module.aws_eks_managed_node_groups["mg_5"].aws_eks_node_group.managed_ng: Creation complete after 2m31s [id=capstone-project:capstone-project-managed-ondemand-20220621022244803700000009][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].data.aws_iam_policy_document.atlantis: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_partition.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_route53_zone.selected: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_region.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].data.aws_iam_policy_document.atlantis: Read complete after 0s [id=3464057280][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_eks_cluster.eks_cluster: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].data.aws_iam_policy_document.karpenter: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].kubernetes_namespace_v1.this: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].data.aws_iam_policy_document.karpenter: Read complete after 0s [id=2833454573][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_eks_cluster.eks_cluster: Read complete after 0s [id=capstone-project][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.data.aws_caller_identity.current: Read complete after 0s [id=321852949023][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].aws_iam_policy.atlantis: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].aws_iam_policy.karpenter: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].data.aws_iam_policy_document.aws_ebs_csi_driver[0]: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].data.aws_iam_policy_document.aws_lb: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].data.aws_iam_policy_document.aws_ebs_csi_driver[0]: Read complete after 0s [id=1888929143][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_iam_policy.aws_ebs_csi_driver[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].data.aws_iam_policy_document.aws_lb: Read complete after 0s [id=304567098][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].aws_iam_policy.aws_load_balancer_controller: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].kubernetes_namespace_v1.this: Creation complete after 1s [id=argocd][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_route53_zone.selected: Read complete after 1s [id=Z08753113IBKZ7SGL2Q7Q][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_iam_policy_document.external_dns_iam_policy_document: Reading...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].data.aws_iam_policy_document.external_dns_iam_policy_document: Read complete after 0s [id=2583156838][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].aws_iam_policy.external_dns: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].aws_iam_policy.atlantis: Creation complete after 1s [id=arn:aws:iam::321852949023:policy/capstone-project-atlantis][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].aws_iam_policy.aws_load_balancer_controller: Creation complete after 1s [id=arn:aws:iam::321852949023:policy/capstone-project-lb-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_iam_policy.aws_ebs_csi_driver[0]: Creation complete after 1s [id=arn:aws:iam::321852949023:policy/capstone-project-aws-ebs-csi-driver-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].module.irsa_addon[0].aws_iam_role.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].aws_iam_policy.karpenter: Creation complete after 1s [id=arn:aws:iam::321852949023:policy/capstone-project-karpenter][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].aws_iam_policy.external_dns: Creation complete after 1s [id=arn:aws:iam::321852949023:policy/capstone-project-external-dns-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0]: Creation complete after 1s [id=atlantis][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Creation complete after 1s [id=capstone-project-aws-load-balancer-controller-sa-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Creation complete after 1s [id=capstone-project-atlantis-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].module.irsa_addon[0].aws_iam_role.irsa[0]: Creation complete after 1s [id=capstone-project-ebs-csi-controller-sa-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].module.irsa_addon[0].aws_iam_role_policy_attachment.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0]: Creation complete after 1s [id=karpenter][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Creation complete after 1s [id=capstone-project-karpenter-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Creation complete after 1s [id=capstone-project-aws-load-balancer-controller-sa-irsa-2022062102251838550000000b][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Creation complete after 1s [id=capstone-project-atlantis-irsa-2022062102251838550000000c][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].module.irsa_addon[0].aws_iam_role_policy_attachment.irsa[0]: Creation complete after 1s [id=capstone-project-ebs-csi-controller-sa-irsa-2022062102251840970000000d][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].aws_iam_role.irsa[0]: Creation complete after 1s [id=capstone-project-external-dns-sa-irsa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].kubernetes_namespace_v1.irsa[0]: Creation complete after 1s [id=external-dns][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Creation complete after 1s [id=capstone-project-karpenter-irsa-2022062102251859850000000f][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].aws_iam_role_policy_attachment.irsa[0]: Creation complete after 0s [id=capstone-project-external-dns-sa-irsa-20220621022518757000000010][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.atlantis[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Creation complete after 1s [id=atlantis/atlantis][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.karpenter[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Creation complete after 2s [id=karpenter/karpenter][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_load_balancer_controller[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Creation complete after 2s [id=kube-system/aws-load-balancer-controller-sa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.external_dns[0].module.helm_addon.module.irsa[0].kubernetes_service_account_v1.irsa[0]: Creation complete after 1s [id=external-dns/external-dns-sa][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.aws_ebs_csi_driver[0].aws_eks_addon.aws_ebs_csi_driver: Creation complete after 1m17s [id=capstone-project:aws-ebs-csi-driver][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].module.helm_addon.helm_release.addon[0]: Creation complete after 1m32s [id=argo-cd][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["addons"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["workloads"]: Creating...[0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["addons"]: Creation complete after 4s [id=addons][0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["workloads"]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks_blueprints_kubernetes_addons.module.argocd[0].helm_release.argocd_application["workloads"]: Creation complete after 11s [id=workloads][0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mRedundant ignore_changes element[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  on .terraform/modules/eks_blueprints.aws_eks/main.tf line 298, in resource "aws_eks_addon" "this":
+[33m│[0m [0m 298: resource [4m"aws_eks_addon"[0m "this" {[0m
+[33m│[0m [0m
+[33m│[0m [0mAdding an attribute name to ignore_changes tells Terraform to ignore future changes to the argument in configuration after the object has been created, retaining the value originally configured.
+[33m│[0m [0m
+[33m│[0m [0mThe attribute modified_at is decided by the provider alone and therefore there can be no configured value to compare with. Including this attribute in ignore_changes has no effect. Remove the attribute from
+[33m│[0m [0mignore_changes to quiet this warning.
+[33m╵[0m[0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mExperimental feature "module_variable_optional_attrs" is active[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  on .terraform/modules/eks_blueprints_kubernetes_addons.ondat/locals.tf line 2, in terraform:
+[33m│[0m [0m   2:   experiments = [[4mmodule_variable_optional_attrs[0m][0m
+[33m│[0m [0m
+[33m│[0m [0mExperimental features are subject to breaking changes in future minor or patch releases, based on feedback.
+[33m│[0m [0m
+[33m│[0m [0mIf you have feedback on the design of this feature, please open a GitHub issue to discuss it.
+[33m│[0m [0m
+[33m│[0m [0m(and 76 more similar warnings elsewhere)
+[33m╵[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 82 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mconfigure_kubectl = "aws eks --region us-east-1 update-kubeconfig --name capstone-project"
