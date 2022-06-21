@@ -4,7 +4,7 @@ projects:
 # If two or more projects have the same dir and workspace, they must also have
 # a 'name' key to differentiate them.
 - name: build-project
-  dir: ./build-clusters/argocd
+  dir: ./build-clusters
   workflow: build
 - name: dev-project
   dir: ./workload-clusters
