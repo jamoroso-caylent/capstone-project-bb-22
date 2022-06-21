@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 1.0.0"
   backend "s3" {
     bucket = "capstone-bb-atlantis"
-    key    = "states/terraform.tfstate" 
+    key    = "states/workload/terraform.tfstate" 
   }
   required_providers {
     aws = {
