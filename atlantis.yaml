@@ -3,15 +3,25 @@ version: 3
 projects:
 # If two or more projects have the same dir and workspace, they must also have
 # a 'name' key to differentiate them.
-- name: project1
+- name: default
   dir: ./build-clusters/argocd
+  workflow: build
+- name: default
+  dir: ./workload-clusters
   workflow: dev
 
 workflows:
+  build:
+    plan:
+      steps:
+      - init
+          # extra_args: ["-backend-config", "backend.tfvars"]
+      - plan:
+          extra_args: ["-var-file", "buid.tfvars"]
   dev:
     plan:
       steps:
       - init
           # extra_args: ["-backend-config", "backend.tfvars"]
       - plan:
-          extra_args: ["-var-file", "dev.tfvars"]
+          extra_args: ["-var-file", "./env/dev.tfvars"]
