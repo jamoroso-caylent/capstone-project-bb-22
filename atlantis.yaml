@@ -12,6 +12,6 @@ workflows:
     plan:
       steps:
       - init
-          # extra_args: ["-backend-config", "backend.tfvars"]
+          extra_args: ["-backend-config", "./env/dev/backend.tfvars"]
       - plan:
-          extra_args: ["-var-file", "./env/dev.tfvars"]
+          extra_args: ["-var-file", "./env/dev/dev.tfvars"]
