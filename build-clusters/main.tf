@@ -41,6 +41,8 @@ data "aws_availability_zones" "available" {
 
 data "aws_region" "current" {}
 
+data "aws_caller_identity" "current" {}
+
 locals {
   name           = var.name
   vpc_cidr       = var.vpc_cidr
@@ -72,6 +74,14 @@ module "eks_blueprints" {
       min_size     = var.min_size
     }
   }
+
+  map_roles = [
+    {
+    rolearn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/capstone-project-atlantis-irsa"
+    username = "system:serviceaccount:atlantis:atlantis"
+    groups   = ["system:bootstrappers","system:nodes"]
+    }
+  ]
 
   tags = local.tags
 }
