@@ -20,7 +20,7 @@ resource "aws_codepipeline" "codepipeline" {
       output_artifacts = ["source_output"]
 
       configuration = {
-        ConnectionArn    = aws_codestarconnections_connection.codestar_connection.arn
+        ConnectionArn    = var.codestar_connection_arn
         FullRepositoryId = var.repository_id
         BranchName       = var.repository_branch
       }
@@ -47,15 +47,10 @@ resource "aws_codepipeline" "codepipeline" {
   tags = var.tags
 }
 
-resource "aws_codestarconnections_connection" "codestar_connection" {
-  name          = "${name_prefix}-connection"
-  provider_type = "GitHub"
-}
-
 resource "aws_s3_bucket" "codepipeline_bucket" {
-  bucket = "${name_prefix}-codebuild-bb-program-2022"
+  bucket        = "${var.name_prefix}-codebuild-bb-program-2022"
   force_destroy = true
-  tags = var.tags
+  tags          = var.tags
 }
 
 resource "aws_s3_bucket_acl" "codepipeline_bucket_acl" {
@@ -64,7 +59,7 @@ resource "aws_s3_bucket_acl" "codepipeline_bucket_acl" {
 }
 
 resource "aws_iam_role" "codepipeline_role" {
-  name = "${name_prefix}-codepipeline-role"
+  name = "${var.name_prefix}-codepipeline-role"
 
   assume_role_policy = <<EOF
 {
@@ -83,7 +78,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "codepipeline_policy" {
-  name = "${name_prefix}-codepipeline-policy"
+  name = "${var.name_prefix}-codepipeline-policy"
   role = aws_iam_role.codepipeline_role.id
 
   policy = <<EOF
@@ -109,7 +104,7 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
       "Action": [
         "codestar-connections:UseConnection"
       ],
-      "Resource": "${aws_codestarconnections_connection.codestar_connection.arn}"
+      "Resource": "${var.codestar_connection_arn}"
     },
     {
       "Effect": "Allow",
@@ -125,8 +120,8 @@ EOF
 }
 
 ############### CODEBUILD #####################
-resource "aws_iam_role" "example" {
-  name = "${name_prefix}-codebuild-role"
+resource "aws_iam_role" "codebuild-role" {
+  name = "${var.name_prefix}-codebuild-role"
 
   assume_role_policy = <<EOF
 {
@@ -167,6 +162,29 @@ resource "aws_iam_role_policy" "codebuild-role" {
     },
     {
       "Effect": "Allow",
+      "Action": [
+            "ecr:BatchGetImage",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:CompleteLayerUpload",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:InitiateLayerUpload",
+            "ecr:PutImage",
+            "ecr:UploadLayerPart"
+      ],
+      "Resource": "${aws_ecr_repository.ecr_repository.arn}"
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ecr:GetRegistryPolicy",
+            "ecr:DescribeRegistry",
+            "ecr:DescribePullThroughCacheRules",
+            "ecr:GetAuthorizationToken"
+        ],
+        "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
       "Resource": [
         "*"
       ],
@@ -204,8 +222,8 @@ POLICY
 }
 
 resource "aws_codebuild_project" "codebuild" {
-  name          = "${name_prefix}-build-project"
-  description   = "${name_prefix}-build-project"
+  name          = "${var.name_prefix}-build-project"
+  description   = "${var.name_prefix}-build-project"
   build_timeout = "5"
   service_role  = aws_iam_role.codebuild-role.arn
 
@@ -213,18 +231,21 @@ resource "aws_codebuild_project" "codebuild" {
     type = "CODEPIPELINE"
   }
 
-
   environment {
     compute_type                = "BUILD_GENERAL1_SMALL"
     image                       = "aws/codebuild/standard:1.0"
     type                        = "LINUX_CONTAINER"
     image_pull_credentials_type = "CODEBUILD"
+    privileged_mode             = true
 
     environment_variable {
       name  = "IMAGE_REPO_URL"
       value = aws_ecr_repository.ecr_repository.repository_url
     }
-
+    environment_variable {
+      name  = "AWS_ACCOUNT_ID"
+      value = data.aws_caller_identity.current.account_id
+    }
   }
 
   logs_config {
@@ -235,7 +256,8 @@ resource "aws_codebuild_project" "codebuild" {
   }
 
   source {
-    type            = "CODEPIPELINE"
+    buildspec = var.buildspec_path
+    type      = "CODEPIPELINE"
   }
 
   tags = var.tags

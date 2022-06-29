@@ -18,3 +18,12 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+variable "codestar_connection_arn" {
+  description = "Codestar connection ARN to be used by the pipeline"
+  type        = string
+}
+
+variable "buildspec_path" {
+  description = "Path in the repository where buildspec.yml is located"
+  type        = string
+}
