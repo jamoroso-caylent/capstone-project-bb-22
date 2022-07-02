@@ -49,6 +49,30 @@ module "eks_blueprints" {
       subnet_ids      = module.vpc.private_subnets
     }
   }
+  
+  # Teams
+  application_teams = {
+    # First Team
+    team-jose = {
+      "labels" = {
+        "app"     = "backend"
+      }
+      "quota" = {
+        "requests.cpu"    = "1000m",
+        "requests.memory" = "4Gi",
+        "limits.cpu"      = "2000m",
+        "limits.memory"   = "8Gi",
+        "pods"            = "10",
+        "secrets"         = "10",
+        "services"        = "10"
+      }
+      # Belows are examples of IAM users and roles
+      users = [
+        "arn:aws:iam::321852949023:user/team-jose",
+      ]
+    }
+  }
+
 
   tags = local.tags
 }
