@@ -4,3 +4,9 @@ variable "cluster_name" {
   type        = string
   default     = ""
 }
+
+variable "cluster_hostname" {
+  type        = string
+  description = "Domain name used on external dns plugin if enabled"
+  default     = ""  
+}

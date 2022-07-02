@@ -60,16 +60,19 @@ module "eks_blueprints_kubernetes_addons" {
   eks_cluster_endpoint = module.eks_blueprints.eks_cluster_endpoint
   eks_oidc_provider    = module.eks_blueprints.oidc_provider
   eks_cluster_version  = module.eks_blueprints.eks_cluster_version
+  eks_cluster_domain   = var.cluster_hostname #Used by external dns
 
   # EKS Managed Add-ons
   enable_amazon_eks_aws_ebs_csi_driver = true
 
 
   # Add-ons
+  enable_external_dns                  = true
   enable_aws_load_balancer_controller = true
   enable_metrics_server               = true
   enable_cluster_autoscaler           = true
   enable_aws_cloudwatch_metrics       = true
+  enable_csi_secrets_store_provider    = true
 
   tags = local.tags
   depends_on = [
