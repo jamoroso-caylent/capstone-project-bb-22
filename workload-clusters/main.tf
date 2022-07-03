@@ -96,8 +96,6 @@ module "eks_blueprints_kubernetes_addons" {
   enable_external_dns                 = true
   enable_aws_load_balancer_controller = true
   enable_metrics_server               = true
-  enable_cluster_autoscaler           = true
-  enable_aws_cloudwatch_metrics       = true
   enable_csi_secrets_store_provider   = true
 
   tags = local.tags
