@@ -28,6 +28,20 @@ provider "helm" {
   }
 }
 
+data "aws_availability_zones" "available" {
+  state = "available"
+  filter {
+    name   = "opt-in-status"
+    values = ["opt-in-not-required"]
+  }
+}
+
+data "aws_partition" "current" {}
+
+data "aws_caller_identity" "current" {}
+
+data "aws_region" "current" {}
+
 #---------------------------------------------------------------
 # EKS Blueprints
 #---------------------------------------------------------------
@@ -35,44 +49,26 @@ module "eks_blueprints" {
   source = "git::https://github.com/jamoroso-caylent/terraform-aws-eks-blueprints.git"
 
   #                 var.cluster_name is for Terratest
-  cluster_name    = coalesce(var.cluster_name, local.name)
+  cluster_name    = "${local.name}-${local.env}"
   cluster_version = "1.21"
 
   vpc_id             = module.vpc.vpc_id
   private_subnet_ids = module.vpc.private_subnets
 
-  managed_node_groups = {
+ managed_node_groups = {
     mg_5 = {
-      node_group_name = "managed-ondemand"
-      instance_types  = ["m5.large"]
-      min_size        = 2
+      node_group_name = "${local.name}-mang-ng-${local.env}"
+      instance_types  = local.instance_types
       subnet_ids      = module.vpc.private_subnets
+
+      desired_size = var.desired_size
+      max_size     = var.max_size
+      min_size     = var.min_size
     }
   }
 
   # Teams
-  application_teams = {
-    # First Team
-    team-jose = {
-      "labels" = {
-        "app" = "backend"
-      }
-      "quota" = {
-        "requests.cpu"    = "1000m",
-        "requests.memory" = "4Gi",
-        "limits.cpu"      = "2000m",
-        "limits.memory"   = "8Gi",
-        "pods"            = "10",
-        "secrets"         = "10",
-        "services"        = "10"
-      }
-      # Belows are examples of IAM users and roles
-      users = [
-        "arn:aws:iam::321852949023:user/team-jose",
-      ]
-    }
-  }
-
+  application_teams = local.application_teams
 
   tags = local.tags
 }
@@ -103,13 +99,3 @@ module "eks_blueprints_kubernetes_addons" {
     module.eks_blueprints
   ]
 }
-
-#---------------------------------------------------------------
-# Supporting Resources
-#---------------------------------------------------------------
-# module "documentdb" {
-#   source     = "./modules/documentdb"
-#   name       = local.name
-#   subnet_ids = module.vpc.private_subnets
-#   vpc_id     = module.vpc.vpc_id
-# }

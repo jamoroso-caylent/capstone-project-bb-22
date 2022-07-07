@@ -43,13 +43,6 @@ data "aws_region" "current" {}
 
 data "aws_caller_identity" "current" {}
 
-locals {
-  name           = var.name
-  vpc_cidr       = var.vpc_cidr
-  azs            = slice(data.aws_availability_zones.available.names, 0, 3)
-  tags           = var.tags
-  instance_types = var.instance_types
-}
 
 #---------------------------------------------------------------
 # EKS Blueprints
@@ -103,28 +96,21 @@ module "eks_blueprints_kubernetes_addons" {
       repo_url           = "https://github.com/jamoroso-caylent/eks-blueprints-add-ons.git"
       add_on_application = true
     }
-    workloads = {
-      path               = "envs/qa"
+    dev-workload = {
+      path               = "envs/dev"
       repo_url           = "https://github.com/jamoroso-caylent/eks-blueprints-workloads.git"
       add_on_application = false
     }
-
+    prod-workload = {
+      path               = "envs/prod"
+      repo_url           = "https://github.com/jamoroso-caylent/eks-blueprints-workloads.git"
+      add_on_application = false
+    }
   }
   argocd_helm_config = {
     values = [templatefile("${path.module}/helm_values/argocd.yml", {
       hostname = var.argocd_hostname
   })] }
-
-  atlantis_helm_config = {
-    values = [templatefile("${path.module}/helm_values/atlantis.yml", {
-      github_user         = var.atlantis_github_user
-      github_token        = data.aws_secretsmanager_secret_version.secret_atlantis_github_token.secret_string
-      github_secret       = data.aws_secretsmanager_secret_version.secret_atlantis_github_secret.secret_string
-      github_orgAllowlist = var.atlantis_github_orgAllowlist
-      hostname            = var.atlantis_hostname
-      env                 = var.env
-    })]
-  }
 
   # Add-ons
   enable_external_dns                  = true
@@ -177,14 +163,5 @@ module "vpc" {
   }
 
   tags = local.tags
-}
-
-
-data "aws_secretsmanager_secret_version" "secret_atlantis_github_token" {
-  secret_id = "/${var.env}/atlantis/github_token"
-}
-
-data "aws_secretsmanager_secret_version" "secret_atlantis_github_secret" {
-  secret_id = "/${var.env}/atlantis/github_secret"
 }
 

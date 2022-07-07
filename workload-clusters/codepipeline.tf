@@ -1,18 +1,20 @@
-module "app1-backend-cicd" {
+module "team-backend-cicd" {
   source                  = "./modules/codepipeline"
-  name_prefix             = "simple-crud-backend-app"
+  env                     = local.env
+  name_prefix             = "crud-backend-app-${local.env}"
   repository_id           = "jamoroso-caylent/spring-boot-angular-14-mysql-example"
-  repository_branch       = "master"
+  repository_branch       = local.env == "prod" ? "master" : local.env
   buildspec_path          = "spring-boot-server/buildspec.yml"
   codestar_connection_arn = aws_codestarconnections_connection.codestar_connection.arn
   tags                    = local.tags
 }
 
-module "app1-frontend-cicd" {
+module "team-frontend-cicd" {
   source                  = "./modules/codepipeline"
-  name_prefix             = "simple-crud-frontend-app"
+  env                     = local.env
+  name_prefix             = "crud-frontend-app-${local.env}"
   repository_id           = "jamoroso-caylent/spring-boot-angular-14-mysql-example"
-  repository_branch       = "master"
+  repository_branch       = local.env == "prod" ? "master" : local.env
   buildspec_path          = "angular-14-client/buildspec.yml"
   codestar_connection_arn = aws_codestarconnections_connection.codestar_connection.arn
   tags                    = local.tags

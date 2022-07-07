@@ -1,17 +1,18 @@
 name     = "capstone-project"
-vpc_cidr = "172.17.0.0/16"
+vpc_cidr = "172.18.0.0/16"
 tags = {
   "created-on"       = "23-06-10PM"
   "capstone-project" = "true"
 }
-env            = "dev"
+env            = "prod"
 instance_types = ["m5.large"]
 desired_size   = 2
 max_size       = 3
 min_size       = 1
 
-cluster_hostname             = "jamoroso.com"
-create_irsa_team_backend            = true
+cluster_hostname         = "jamoroso.com"
+create_irsa_team_backend = true
+
 application_teams = {
   # First Team
   team-backend = {

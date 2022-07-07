@@ -1,3 +1,3 @@
 bucket = "capstone-bb-atlantis"
-key    = "build-cluster/terraform.tfstate"
+key    = "prod-cluster/terraform.tfstate"
 region = "us-east-1"

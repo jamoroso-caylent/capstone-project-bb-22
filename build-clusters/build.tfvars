@@ -4,7 +4,7 @@ tags = {
   "created-on" = "23-06-10PM"
   "capstone-project" = "true"
 }
-env = "dev"
+env = "build"
 instance_types = ["m5.large"]
 desired_size   = 2
 max_size       = 3

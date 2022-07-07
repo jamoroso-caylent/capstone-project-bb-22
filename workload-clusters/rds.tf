@@ -2,8 +2,8 @@ module "db_security_group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 4.0"
 
-  name        = local.name
-  description = "Complete Mysql example security group"
+  name        = "${local.name}-${local.env}"
+  description = "Capstone BB-22 security group"
   vpc_id      = module.vpc.vpc_id
 
   # ingress
@@ -22,7 +22,7 @@ module "db_security_group" {
 module "db" {
   source = "terraform-aws-modules/rds/aws"
 
-  identifier = local.name
+  identifier = "${local.name}-${local.env}"
 
   engine               = "mysql"
   engine_version       = "8.0.27"

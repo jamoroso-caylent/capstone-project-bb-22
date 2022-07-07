@@ -1,9 +1,10 @@
-module "irsa_team_jose" {
+module "irsa_team_backend" {
+  count                             = var.create_irsa_team_backend ? 1 : 0
   source                            = "git::https://github.com/jamoroso-caylent/terraform-aws-eks-blueprints.git//modules/irsa"
   create_kubernetes_namespace       = false
   create_kubernetes_service_account = true
-  kubernetes_namespace              = "team-jose"
-  kubernetes_service_account        = "team-jose"
+  kubernetes_namespace              = "team-backend"
+  kubernetes_service_account        = "team-backend"
   irsa_iam_policies                 = ["arn:aws:iam::aws:policy/SecretsManagerReadWrite"]
   addon_context = {
     aws_caller_identity_account_id = data.aws_caller_identity.current.account_id
@@ -17,10 +18,4 @@ module "irsa_team_jose" {
     tags                           = local.tags
   }
 }
-
-data "aws_partition" "current" {}
-
-data "aws_caller_identity" "current" {}
-
-data "aws_region" "current" {}
 

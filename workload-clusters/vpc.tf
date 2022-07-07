@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 3.0"
 
-  name = local.name
+  name = "${local.name}-${local.env}"
   cidr = local.vpc_cidr
 
   azs             = local.azs
@@ -15,19 +15,19 @@ module "vpc" {
 
   # Manage so we can name
   manage_default_network_acl    = true
-  default_network_acl_tags      = { Name = "${local.name}-default" }
+  default_network_acl_tags      = { Name = "${local.name}-${local.env}-default" }
   manage_default_route_table    = true
-  default_route_table_tags      = { Name = "${local.name}-default" }
+  default_route_table_tags      = { Name = "${local.name}-${local.env}-default" }
   manage_default_security_group = true
-  default_security_group_tags   = { Name = "${local.name}-default" }
+  default_security_group_tags   = { Name = "${local.name}-${local.env}-default" }
 
   public_subnet_tags = {
-    "kubernetes.io/cluster/${local.name}" = "shared"
+    "kubernetes.io/cluster/${local.name}-${local.env}" = "shared"
     "kubernetes.io/role/elb"              = 1
   }
 
   private_subnet_tags = {
-    "kubernetes.io/cluster/${local.name}" = "shared"
+    "kubernetes.io/cluster/${local.name}-${local.env}" = "shared"
     "kubernetes.io/role/internal-elb"     = 1
   }
 

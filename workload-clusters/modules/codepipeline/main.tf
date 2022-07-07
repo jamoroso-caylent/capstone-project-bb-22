@@ -246,6 +246,10 @@ resource "aws_codebuild_project" "codebuild" {
       name  = "AWS_ACCOUNT_ID"
       value = data.aws_caller_identity.current.account_id
     }
+    environment_variable {
+      name  = "ENV"
+      value = var.env
+    }
   }
 
   logs_config {
