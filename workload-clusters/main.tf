@@ -137,7 +137,13 @@ module "eks_blueprints" {
     node_security_group_tags = {
     "karpenter.sh/discovery/${local.name}-${local.env}" = "${local.name}-${local.env}"
   }
-
+  map_roles = [
+    {
+      rolearn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/capstone-project-atlantis-irsa"
+      username = "system:serviceaccount:atlantis:atlantis"
+      groups   = ["system:bootstrappers", "system:nodes"]
+    }
+  ]
   # Teams
   application_teams = local.application_teams
 

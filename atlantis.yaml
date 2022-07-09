@@ -9,9 +9,15 @@ projects:
 - name: dev-project
   dir: ./workload-clusters
   workflow: dev
+  autoplan:
+    when_modified: ["*.tf", "./env/dev/*.tfvars"]
+    enabled: true
 - name: prod-project
   dir: ./workload-clusters
   workflow: prod
+  autoplan:
+    when_modified: ["*.tf", "./env/prod/*.tfvars"]
+    enabled: true
 
 workflows:
   build:
