@@ -9,6 +9,9 @@ projects:
 - name: dev-project
   dir: ./workload-clusters
   workflow: dev
+- name: prod-project
+  dir: ./workload-clusters
+  workflow: prod
 
 workflows:
   build:
@@ -25,3 +28,11 @@ workflows:
           extra_args: ["-backend-config", "./env/dev/backend.tfvars"]
       - plan:
           extra_args: ["-var-file", "./env/dev/dev.tfvars"]
+
+  prod:
+    plan:
+      steps:
+      - init:
+          extra_args: ["-backend-config", "./env/prod/backend.tfvars"]
+      - plan:
+          extra_args: ["-var-file", "./env/prod/prod.tfvars"]
