@@ -88,8 +88,6 @@ module "eks_blueprints_kubernetes_addons" {
   eks_oidc_provider                   = module.eks_blueprints.oidc_provider
   eks_cluster_version                 = module.eks_blueprints.eks_cluster_version
   eks_cluster_domain                  = var.cluster_hostname #Used by external dns
-  # enable_karpenter                    = true
-  # enable_aws_node_termination_handler = true
 
   enable_argocd         = true
   argocd_manage_add_ons = true # Indicates that ArgoCD is responsible for managing/deploying add-ons
