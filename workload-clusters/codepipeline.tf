@@ -5,6 +5,7 @@ module "team-backend-cicd" {
   repository_id           = "jamoroso-caylent/spring-boot-angular-14-mysql-example"
   repository_branch       = local.env == "prod" ? "master" : local.env
   buildspec_path          = "spring-boot-server/buildspec.yml"
+  buildspec_path_test     = "spring-boot-server/buildspec-test.yml"
   codestar_connection_arn = aws_codestarconnections_connection.codestar_connection.arn
   tags                    = local.tags
 }
@@ -16,6 +17,7 @@ module "team-frontend-cicd" {
   repository_id           = "jamoroso-caylent/spring-boot-angular-14-mysql-example"
   repository_branch       = local.env == "prod" ? "master" : local.env
   buildspec_path          = "angular-14-client/buildspec.yml"
+  buildspec_path_test     = "spring-boot-server/buildspec-test.yml"
   codestar_connection_arn = aws_codestarconnections_connection.codestar_connection.arn
   tags                    = local.tags
 }

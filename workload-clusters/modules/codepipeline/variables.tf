@@ -28,6 +28,12 @@ variable "buildspec_path" {
   type        = string
 }
 
+variable "buildspec_path_test" {
+  description = "Path in the repository where buildspec-test.yml is located"
+  type        = string
+}
+
+
 variable "env" {
   description = "Variable to be used on image build"
   type        = string

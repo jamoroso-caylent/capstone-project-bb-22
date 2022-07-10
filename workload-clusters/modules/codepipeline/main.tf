@@ -28,8 +28,34 @@ resource "aws_codepipeline" "codepipeline" {
   }
 
   stage {
+    name = "Test"
+
+    action {
+      name             = "Test"
+      category         = "Test"
+      owner            = "AWS"
+      provider         = "CodeBuild"
+      input_artifacts  = ["source_output"]
+      version          = "1"
+
+      configuration = {
+        ProjectName = aws_codebuild_project.codebuild-test.id
+      }
+    }
+  }
+
+
+  stage {
     name = "Build"
 
+    action {
+      name             = "Approval"
+      category         = "Approval"
+      owner            = "AWS"
+      provider         = "Manual"
+      version          = "1"
+      run_order = 1
+    }
     action {
       name             = "Build"
       category         = "Build"
@@ -38,7 +64,7 @@ resource "aws_codepipeline" "codepipeline" {
       input_artifacts  = ["source_output"]
       output_artifacts = ["build_output"]
       version          = "1"
-
+      run_order = 2
       configuration = {
         ProjectName = aws_codebuild_project.codebuild.id
       }
@@ -261,6 +287,38 @@ resource "aws_codebuild_project" "codebuild" {
 
   source {
     buildspec = var.buildspec_path
+    type      = "CODEPIPELINE"
+  }
+
+  tags = var.tags
+}
+
+resource "aws_codebuild_project" "codebuild-test" {
+  name          = "${var.name_prefix}-build-project-test"
+  description   = "${var.name_prefix}-build-project-test"
+  build_timeout = "5"
+  service_role  = aws_iam_role.codebuild-role.arn
+
+  artifacts {
+    type = "CODEPIPELINE"
+  }
+
+  environment {
+    compute_type                = "BUILD_GENERAL1_SMALL"
+    image                       = "aws/codebuild/standard:5.0"
+    type                        = "LINUX_CONTAINER"
+    image_pull_credentials_type = "CODEBUILD"
+  }
+
+  logs_config {
+    cloudwatch_logs {
+      group_name  = "log-group-test"
+      stream_name = "log-stream-test"
+    }
+  }
+
+  source {
+    buildspec = var.buildspec_path_test
     type      = "CODEPIPELINE"
   }
 
