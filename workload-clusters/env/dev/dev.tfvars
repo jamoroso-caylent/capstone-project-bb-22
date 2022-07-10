@@ -1,7 +1,7 @@
 name     = "workload"
 vpc_cidr = "172.17.0.0/16"
 tags = {
-  "created-on"       = "23-06-10PM"
+  "created-on"       = "09-07-10PM"
   "capstone-project" = "true"
 }
 env            = "dev"
