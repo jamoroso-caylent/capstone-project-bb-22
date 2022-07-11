@@ -131,7 +131,11 @@ cd workload-clusters/environments/prod
 terraform init --backend-config=backend.tfvars
 terraform apply --var-file=prod.tfvars			#Accept with "yes" the plan showed in the output.
 ```
-After the **dev** and **prod** clusters are created we need to add them to ArgoCD with the [argocd-cli](https://argo-cd.readthedocs.io/en/stable/cli_installation/).
+***Note:*** The code for dev and prod cluster also creates a Codepipeline flow for each environment and team, as it needs to integrates with Github, we need to perform a manual approval on the Codepipeline connection and release all the created pipelines again. This is required to push the images used for each application on ECR.
+
+Unlike the build-cluster, the workloads clusters do not receive the add-ons helm parameters to create the Argocd Application; then we need to pass these directly on the [add-ons repository](https://github.com/jamoroso-caylent/eks-blueprints-add-ons/tree/main/chart). These should be given depending on the environment in the file `values-<env>.yaml`. The flags defined on the Terraform code are also required as they will create resources such as namespaces, permissions, or roles.
+
+After the **dev** and **prod** clusters are created and the add-ons have the correct values, we need to add the clusters to ArgoCD with the [argocd-cli](https://argo-cd.readthedocs.io/en/stable/cli_installation/).
 ```
 argocd login <argocd-hostname>
 aws eks --region <region> update-kubeconfig --name <cluster-name>
@@ -139,9 +143,8 @@ argocd cluster add <cluster-arn> --name <envrionment>-workload
 ```
 These commands are applied twice; for dev and prod clusters. 
 
-Unlike the build-cluster, the workloads clusters do not receive the add-ons helm parameters to create the Argocd Application; then we need to pass these directly on the [add-ons repository](https://github.com/jamoroso-caylent/eks-blueprints-add-ons/tree/main/chart). These should be given depending on the environment in the file `values-<env>.yaml`. The flags defined on the Terraform code are also required as they will create resources such as namespaces, permissions, or roles.
-
 **Application secrets**
+
 For this application example, the "team-backend" needs to use AWS secrets manager to get the credentials to access the MySQL database. Then as a first step, we need to add these secrets with the following structure:
 ```
 {
