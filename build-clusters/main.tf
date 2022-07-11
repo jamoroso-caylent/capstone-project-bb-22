@@ -69,6 +69,7 @@ module "eks_blueprints" {
     # Launch template configuration
   }
 
+  #Added atlantis role to manage resources with the atlantis service account
   map_roles = [
     {
       rolearn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/capstone-project-atlantis-irsa"
