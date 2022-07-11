@@ -1,5 +1,5 @@
 module "team-backend-cicd" {
-  source                  = "./modules/codepipeline"
+  source                  = "../../modules/codepipeline"
   env                     = local.env
   name_prefix             = "crud-backend-app-${local.env}"
   repository_id           = "jamoroso-caylent/spring-boot-angular-14-mysql-example"
@@ -11,7 +11,7 @@ module "team-backend-cicd" {
 }
 
 module "team-frontend-cicd" {
-  source                  = "./modules/codepipeline"
+  source                  = "../../modules/codepipeline"
   env                     = local.env
   name_prefix             = "crud-frontend-app-${local.env}"
   repository_id           = "jamoroso-caylent/spring-boot-angular-14-mysql-example"

@@ -7,16 +7,14 @@ projects:
   dir: ./build-clusters
   workflow: build
 - name: dev-project
-  dir: ./workload-clusters
+  dir: ./workload-clusters/environments/dev
   workflow: dev
   autoplan:
-    when_modified: ["*.tf", "./env/dev/*.tfvars"]
     enabled: true
 - name: prod-project
-  dir: ./workload-clusters
+  dir: ./workload-clusters/environments/prod
   workflow: prod
   autoplan:
-    when_modified: ["*.tf", "./env/prod/*.tfvars"]
     enabled: true
 
 workflows:
@@ -31,14 +29,14 @@ workflows:
     plan:
       steps:
       - init:
-          extra_args: ["-backend-config", "./env/dev/backend.tfvars"]
+          extra_args: ["-backend-config", "backend.tfvars"]
       - plan:
-          extra_args: ["-var-file", "./env/dev/dev.tfvars"]
+          extra_args: ["-var-file", "dev.tfvars"]
 
   prod:
     plan:
       steps:
       - init:
-          extra_args: ["-backend-config", "./env/prod/backend.tfvars"]
+          extra_args: ["-backend-config", "backend.tfvars"]
       - plan:
-          extra_args: ["-var-file", "./env/prod/prod.tfvars"]
+          extra_args: ["-var-file", "prod.tfvars"]
