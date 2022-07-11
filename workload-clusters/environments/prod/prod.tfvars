@@ -14,7 +14,6 @@ cluster_hostname         = "jamoroso.com"
 create_irsa_team_backend = true
 
 application_teams = {
-  # First Team
   team-backend = {
     "labels" = {
       "app" = "backend"
