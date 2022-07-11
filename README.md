@@ -10,6 +10,12 @@ This repository deploys all the AWS resources needed, but the following reposito
  - https://github.com/jamoroso-caylent/spring-boot-angular-14-mysql-example (Applications)
  - https://github.com/jamoroso-caylent/terraform-aws-eks-blueprints (EKS-blueprints **fork**)
 
+We used ArgoCD and Atlantis to follow the GitOps practices. Changes on the code for workloads or infraestrcuture have the following flows:
+# Workloads GitOps
+![Alt text](./assets/gitops-workloads.png?raw=true "Title")
+# Infrastructure GitOps
+![Alt text](./assets/gitops-infra.png?raw=true "Title")
+
 ## Project structure
 ```
 capstone-project-bb-22
@@ -32,6 +38,13 @@ capstone-project-bb-22
 |	|	|	|	...
 
 ```
+Next images illustrates the stack used on each EKS-blueprints deployments:
+# Dev/Prod clusters
+![Workload Cluster EKS blueprints-Stack](./assets/workload-cluster.png?raw=true "Title")
+
+# Build cluster
+![Build Cluster EKS blueprints-Stack](./assets/build-cluster.png?raw=true "Title")
+
 ## Prerequisites
 To create all resources defined in this repository, we need to consider the following prerequisites:
 
