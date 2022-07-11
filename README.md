@@ -56,7 +56,7 @@ To create all resources defined in this repository, we need to consider the foll
  - To use Atlantis add-on:
 	 -   Generate a Github access token -> https://www.runatlantis.io/docs/access-credentials.html#generating-an-access-token
 	 - Create a secret on AWS Secrets Manager with the following structure:
-		  ```JSON
+		  ```
 		{ 
 			github_token: <github_token>,
 			github_secret: <github_secret> #Used to trigger the PR webhook
@@ -64,7 +64,7 @@ To create all resources defined in this repository, we need to consider the foll
 		```
 	 - Create a webhook token -> https://www.runatlantis.io/docs/configuring-webhooks.html#github-github-enterprise
 	 - Replace the values as needed on the [atlantis addon values path](https://github.com/jamoroso-caylent/eks-blueprints-add-ons/blob/main/add-ons/atlantis/values.yaml) :
-		```yaml
+		```
 		atlantis:
 			image:
 			repository: jamorosocaylent/atlantis-aws-cli #This image contains Atlantis and AWS CLI
