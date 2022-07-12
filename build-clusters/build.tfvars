@@ -1,7 +1,6 @@
 name     = "capstone-project"
 vpc_cidr = "172.16.0.0/16"
 tags = {
-  "created-on" = "23-06-10PM"
   "capstone-project" = "true"
 }
 env = "build"
@@ -10,5 +9,5 @@ desired_size   = 2
 max_size       = 3
 min_size       = 1
 
-argocd_hostname = "argocd.jamoroso.com"
-cluster_hostname = "jamoroso.com"
+argocd_hostname = ""
+cluster_hostname = ""

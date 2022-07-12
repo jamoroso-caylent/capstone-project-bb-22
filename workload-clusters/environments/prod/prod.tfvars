@@ -1,7 +1,6 @@
 name     = "workload"
 vpc_cidr = "172.18.0.0/16"
 tags = {
-  "created-on"       = "09-07-10PM"
   "capstone-project" = "true"
 }
 env            = "prod"
@@ -10,7 +9,7 @@ desired_size   = 2
 max_size       = 3
 min_size       = 1
 
-cluster_hostname         = "jamoroso.com"
+cluster_hostname         = ""
 create_irsa_team_backend = true
 
 application_teams = {
@@ -29,7 +28,7 @@ application_teams = {
     }
     # Belows are examples of IAM users and roles
     users = [
-      "arn:aws:iam::321852949023:user/team-backend",
+      "",
     ]
   }
   team-frontend = {
@@ -47,7 +46,7 @@ application_teams = {
     }
     # Belows are examples of IAM users and roles
     users = [
-      "arn:aws:iam::321852949023:user/team-frontend",
+      "",
     ]
   }
 }
